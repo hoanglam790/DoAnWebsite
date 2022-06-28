@@ -46,22 +46,12 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-3 col-6 text-right">
-                <a href="" class="btn border">
-                    <i class="fas fa-heart text-primary"></i>
-                    <span class="badge">0</span>
-                </a>
-                <a href="" class="btn border">
-                    <i class="fas fa-shopping-cart text-primary"></i>
-                    <span class="badge">0</span>
-                </a>
-            </div>
         </div>
     </div>
     <!-- Topbar End -->
     <!-- Navbar Start -->
     <div class="container-fluid mb-5">
-        <div class="row border-top px-xl-5">
+        <div style="background-color: moccasin" class="row border-top px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
                     <h6 class="m-0">Danh sách các quận/huyện</h6>
@@ -75,12 +65,12 @@
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div style="background-color: royalblue" class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="@Url.Action("TrangChu", "DuLichDiaPhuong")" class="nav-item nav-link ">Trang chủ</a>
                             <a href="@Url.Action("TrangChinh", "GioiThieu")" class="nav-item nav-link">Giới thiệu Đà Nẵng</a>
-                            <a href="shop.html" class="nav-item nav-link">Tin tức</a>
-                            <a href="detail.html" class="nav-item nav-link">Sự kiện</a>
+                            <a href="@Url.Action("TinTuc", "DuLichDiaPhuong")" class="nav-item nav-link">Tin tức</a>
+                            <a href="@Url.Action("SuKien", "DuLichDiaPhuong")" class="nav-item nav-link">Sự kiện</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dịch vụ</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -165,19 +155,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
-                        <h5 class="font-weight-bold text-dark mb-4">Newsletter</h5>
-                        <form action="">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 py-4" placeholder="Your Name" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control border-0 py-4" placeholder="Your Email"
-                                       required="required" />
-                            </div>
-                            <div>
-                                <button class="btn btn-primary btn-block border-0 py-3" type="submit">Subscribe Now</button>
-                            </div>
-                        </form>
+                        <h5 class="font-weight-bold text-dark mb-4">Địa chỉ liên hệ</h5>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.218468669598!2d108.20045008356445!3d16.054149028565007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421990bdb1c4dd%3A0x18b84166fc2f4254!2zRFUgTOG7ikNIIMSQw4AgTuG6tE5H!5e0!3m2!1svi!2s!4v1656324274916!5m2!1svi!2s" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ namespace WebsiteDuLichDiaPhuong
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Admin", action = "TrangChu", id = UrlParameter.Optional }
+                defaults: new { controller = "DuLichDiaPhuong", action = "TrangChu", id = UrlParameter.Optional }
             );
         }
     }

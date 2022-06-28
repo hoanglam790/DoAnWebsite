@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -128,10 +134,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\DuLichDiaPhuongController.cs" />
-    <Compile Include="Controllers\GioiThieuController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Admin\AdminController.cs" />
+    <Compile Include="Controllers\Admin\DiaDanhController.cs" />
+    <Compile Include="Controllers\Admin\KhachSanController.cs" />
+    <Compile Include="Controllers\NguoiDung\DuLichDiaPhuongController.cs" />
+    <Compile Include="Controllers\NguoiDung\GioiThieuController.cs" />
+    <Compile Include="Controllers\NguoiDung\HomeController.cs" />
+    <Compile Include="Controllers\Admin\QuanHuyenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -191,10 +200,84 @@
     <Content Include="assets\lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="assets\mail\contact.js" />
     <Content Include="assets\mail\jqBootstrapValidation.min.js" />
+    <Content Include="ckeditor5-build-classic\ckeditor.js" />
+    <Content Include="ckeditor5-build-classic\index.html" />
+    <Content Include="ckeditor5-build-classic\sample\css\sample.css" />
+    <Content Include="ckeditor5-build-classic\sample\img\bg.png" />
+    <Content Include="ckeditor5-build-classic\sample\img\github.svg" />
+    <Content Include="ckeditor5-build-classic\sample\img\logo.svg" />
+    <Content Include="ckeditor5-build-classic\sample\img\umbrellas.jpg" />
+    <Content Include="ckeditor5-build-classic\translations\af.js" />
+    <Content Include="ckeditor5-build-classic\translations\ar.js" />
+    <Content Include="ckeditor5-build-classic\translations\ast.js" />
+    <Content Include="ckeditor5-build-classic\translations\az.js" />
+    <Content Include="ckeditor5-build-classic\translations\bg.js" />
+    <Content Include="ckeditor5-build-classic\translations\bs.js" />
+    <Content Include="ckeditor5-build-classic\translations\ca.js" />
+    <Content Include="ckeditor5-build-classic\translations\cs.js" />
+    <Content Include="ckeditor5-build-classic\translations\da.js" />
+    <Content Include="ckeditor5-build-classic\translations\de-ch.js" />
+    <Content Include="ckeditor5-build-classic\translations\de.js" />
+    <Content Include="ckeditor5-build-classic\translations\el.js" />
+    <Content Include="ckeditor5-build-classic\translations\en-au.js" />
+    <Content Include="ckeditor5-build-classic\translations\en-gb.js" />
+    <Content Include="ckeditor5-build-classic\translations\eo.js" />
+    <Content Include="ckeditor5-build-classic\translations\es.js" />
+    <Content Include="ckeditor5-build-classic\translations\et.js" />
+    <Content Include="ckeditor5-build-classic\translations\eu.js" />
+    <Content Include="ckeditor5-build-classic\translations\fa.js" />
+    <Content Include="ckeditor5-build-classic\translations\fi.js" />
+    <Content Include="ckeditor5-build-classic\translations\fr.js" />
+    <Content Include="ckeditor5-build-classic\translations\gl.js" />
+    <Content Include="ckeditor5-build-classic\translations\gu.js" />
+    <Content Include="ckeditor5-build-classic\translations\he.js" />
+    <Content Include="ckeditor5-build-classic\translations\hi.js" />
+    <Content Include="ckeditor5-build-classic\translations\hr.js" />
+    <Content Include="ckeditor5-build-classic\translations\hu.js" />
+    <Content Include="ckeditor5-build-classic\translations\id.js" />
+    <Content Include="ckeditor5-build-classic\translations\it.js" />
+    <Content Include="ckeditor5-build-classic\translations\ja.js" />
+    <Content Include="ckeditor5-build-classic\translations\jv.js" />
+    <Content Include="ckeditor5-build-classic\translations\km.js" />
+    <Content Include="ckeditor5-build-classic\translations\kn.js" />
+    <Content Include="ckeditor5-build-classic\translations\ko.js" />
+    <Content Include="ckeditor5-build-classic\translations\ku.js" />
+    <Content Include="ckeditor5-build-classic\translations\lt.js" />
+    <Content Include="ckeditor5-build-classic\translations\lv.js" />
+    <Content Include="ckeditor5-build-classic\translations\ms.js" />
+    <Content Include="ckeditor5-build-classic\translations\nb.js" />
+    <Content Include="ckeditor5-build-classic\translations\ne.js" />
+    <Content Include="ckeditor5-build-classic\translations\nl.js" />
+    <Content Include="ckeditor5-build-classic\translations\no.js" />
+    <Content Include="ckeditor5-build-classic\translations\oc.js" />
+    <Content Include="ckeditor5-build-classic\translations\pl.js" />
+    <Content Include="ckeditor5-build-classic\translations\pt-br.js" />
+    <Content Include="ckeditor5-build-classic\translations\pt.js" />
+    <Content Include="ckeditor5-build-classic\translations\ro.js" />
+    <Content Include="ckeditor5-build-classic\translations\ru.js" />
+    <Content Include="ckeditor5-build-classic\translations\si.js" />
+    <Content Include="ckeditor5-build-classic\translations\sk.js" />
+    <Content Include="ckeditor5-build-classic\translations\sl.js" />
+    <Content Include="ckeditor5-build-classic\translations\sq.js" />
+    <Content Include="ckeditor5-build-classic\translations\sr-latn.js" />
+    <Content Include="ckeditor5-build-classic\translations\sr.js" />
+    <Content Include="ckeditor5-build-classic\translations\sv.js" />
+    <Content Include="ckeditor5-build-classic\translations\th.js" />
+    <Content Include="ckeditor5-build-classic\translations\tk.js" />
+    <Content Include="ckeditor5-build-classic\translations\tr.js" />
+    <Content Include="ckeditor5-build-classic\translations\tt.js" />
+    <Content Include="ckeditor5-build-classic\translations\ug.js" />
+    <Content Include="ckeditor5-build-classic\translations\uk.js" />
+    <Content Include="ckeditor5-build-classic\translations\ur.js" />
+    <Content Include="ckeditor5-build-classic\translations\uz.js" />
+    <Content Include="ckeditor5-build-classic\translations\vi.js" />
+    <Content Include="ckeditor5-build-classic\translations\zh-cn.js" />
+    <Content Include="ckeditor5-build-classic\translations\zh.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -410,6 +493,9 @@
     <Content Include="AssetsAdmin\scss\bootstrap\scss\_type.scss" />
     <Content Include="AssetsAdmin\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="AssetsAdmin\scss\bootstrap\scss\_variables.scss" />
+    <Content Include="ckeditor5-build-classic\ckeditor.js.map" />
+    <Content Include="ckeditor5-build-classic\LICENSE.md" />
+    <Content Include="ckeditor5-build-classic\README.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -514,15 +600,28 @@
     <Content Include="Views\DuLichDiaPhuong\ChiTiet.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\TrangChu.cshtml" />
-    <Content Include="Views\Admin\DanhSachQuanHuyen.cshtml" />
-    <Content Include="Views\Admin\ThemQuanHuyenMoi.cshtml" />
     <Content Include="tinymce\CHANGELOG.md" />
     <Content Include="tinymce\js\tinymce\langs\README.md" />
     <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
     <Content Include="tinymce\js\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
-    <Content Include="Views\Admin\SuaQuanHuyen.cshtml" />
-    <Content Include="Views\Admin\ChiTietQuanHuyen.cshtml" />
-    <Content Include="Views\Admin\XoaQuanHuyen.cshtml" />
+    <Content Include="Views\DuLichDiaPhuong\TinTuc.cshtml" />
+    <Content Include="Views\DuLichDiaPhuong\ChiTietTinTuc.cshtml" />
+    <Content Include="Views\DuLichDiaPhuong\KhachSan.cshtml" />
+    <Content Include="Views\QuanHuyen\DanhSachQuanHuyen.cshtml" />
+    <Content Include="Views\QuanHuyen\ThemQuanHuyenMoi.cshtml" />
+    <Content Include="Views\QuanHuyen\SuaQuanHuyen.cshtml" />
+    <Content Include="Views\QuanHuyen\ChiTietQuanHuyen.cshtml" />
+    <Content Include="Views\QuanHuyen\XoaQuanHuyen.cshtml" />
+    <Content Include="Views\DiaDanh\DanhSachDiaDanh.cshtml" />
+    <Content Include="Views\DiaDanh\ThemDiaDanhMoi.cshtml" />
+    <Content Include="Views\KhachSan\DanhSachKhachSan.cshtml" />
+    <Content Include="Views\KhachSan\ThemKhachSanMoi.cshtml" />
+    <Content Include="Views\KhachSan\SuaKhachSan.cshtml" />
+    <Content Include="Views\KhachSan\ChiTietKhachSan.cshtml" />
+    <Content Include="Views\KhachSan\XoaKhachSan.cshtml" />
+    <Content Include="Views\DuLichDiaPhuong\SuKien.cshtml" />
+    <Content Include="Views\DuLichDiaPhuong\ChiTietSuKien.cshtml" />
+    <Content Include="Views\DuLichDiaPhuong\TrangChu1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

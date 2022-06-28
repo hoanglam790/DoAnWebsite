@@ -20,12 +20,11 @@ namespace WebsiteDuLichDiaPhuong.Models
 
         public int MaHinhAnh { get; set; }
 
-        public int? MaTinTuc { get; set; }
+        [Column(TypeName = "ntext")]
+        public string GioiThieu { get; set; }
 
         public virtual HINHANH HINHANH { get; set; }
 
         public virtual HUYEN HUYEN { get; set; }
-
-        public virtual TINTUC TINTUC { get; set; }
     }
 }

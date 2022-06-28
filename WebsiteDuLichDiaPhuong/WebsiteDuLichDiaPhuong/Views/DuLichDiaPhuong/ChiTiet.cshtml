@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WebsiteDuLichDiaPhuong.Models.DIADANH>
+﻿
+@model WebsiteDuLichDiaPhuong.Models.DIADANH
 @{
     ViewBag.Title = "ChiTiet";
     Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
@@ -6,14 +7,13 @@
 
 <h2 style="text-align: center; color: cornflowerblue; padding-top: 40px"> CHI TIẾT ĐỊA DANH </h2>
 <div class="container-fluid pt-5">
-    @foreach (var item in Model)
-    {
-        <p style="color: brown; padding-top: 40px; margin-left: 80px"><span style="font-weight: bold"> Tên địa danh: </span> @item.TenDiaDanh </p>
-        <p style="color: brown; padding-top: 10px; margin-left: 80px"><span style="font-weight: bold"> Huyện: </span> @item.HUYEN.TenHuyen </p>
-        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-            <img class="img-fluid" src="~/Images/@item.HINHANH.TenHinhAnh" style="max-width: 100%; padding-top: 10px; margin-left: 80px" alt="">
-        </a>
-        <p style="text-align: justify; margin-left: 80px; padding-top: 30px">@item.TINTUC.NoiDungTinTuc</p>
-    }
+
+    <p style="color: brown; padding-top: 40px; margin-left: 80px"><span style="font-weight: bold"> Tên địa danh: </span> @Model.TenDiaDanh </p>
+    <p style="color: brown; padding-top: 10px; margin-left: 80px"><span style="font-weight: bold"> Huyện: </span> @Model.HUYEN.TenHuyen </p>
+    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+        <img class="img-fluid" src="~/Images/@Model.HINHANH.TenHinhAnh" style="max-width: 100%; padding-top: 10px; margin-left: 80px" alt="">
+    </a>
+    <p style="text-align: justify; margin-left: 80px; padding-top: 30px">@Model.GioiThieu</p>
+
 </div>
 

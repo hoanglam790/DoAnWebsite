@@ -1,0 +1,81 @@
+﻿
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteDuLichDiaPhuong.Models.DIADANH>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "DanhSachDiaDanh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 20px; margin-left: 10px">DANH SÁCH ĐỊA DANH</h2>
+
+<p style="margin-left: 10px">
+    @Html.ActionLink("Tạo mới", "ThemDiaDanhMoi", "DiaDanh", new { @class = "btn btn-success" })
+</p>
+<table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px">
+    <tr>
+        <th style="text-align: center; font-weight: bold">
+            Mã địa danh
+        </th>
+        <th style="text-align: center; font-weight: bold">
+            Tên địa danh
+        </th>
+        <th style="text-align: center; font-weight: bold">
+            Tên quận/huyện
+        </th>
+        <th style="text-align: center; font-weight: bold">
+            Tên hình ảnh
+        </th>
+        <th style="text-align: center; font-weight: bold">
+            Giới thiệu
+        </th>
+        <th style="text-align: center; font-weight: bold">
+            Chức năng
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.MaDiaDanh)
+            </td>
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.TenDiaDanh)
+            </td>
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.HUYEN.TenHuyen)
+            </td>
+            <td>
+                <img src="~/Images/@item.HINHANH.TenHinhAnh" width="160px" alt="HinhAnh" />
+            </td>
+            <td style="text-align: justify">
+                @Truncate(item.GioiThieu, 40)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaDiaDanh", new { id = item.MaDiaDanh }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Chi tiết", "ChiTietDiaDanh", new { id = item.MaDiaDanh }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Xóa", "XoaDiaDanh", new { id = item.MaDiaDanh }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+
+<!--Tạo liên kết các trang-->
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="col-md-12 text-center clear-both">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachDiaDanh",
+    new { page = page }))
+</div>

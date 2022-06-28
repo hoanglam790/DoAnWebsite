@@ -18,14 +18,12 @@ namespace WebsiteDuLichDiaPhuong.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaHinhAnh { get; set; }
 
         [Required]
         [StringLength(50)]
         public string TenHinhAnh { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string MoTaHinhAnh { get; set; }
 

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebsiteDuLichDiaPhuong.Models.KHACHSAN>
+
+@{
+    ViewBag.Title = "KhachSan";
+    Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+
+<h2 style="text-align: center; color: brown">KHÁCH SẠN</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HUYEN.TenHuyen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenKS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SĐT)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HUYEN.TenHuyen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SĐT)
+            </td>
+        </tr>
+    }
+
+</table>

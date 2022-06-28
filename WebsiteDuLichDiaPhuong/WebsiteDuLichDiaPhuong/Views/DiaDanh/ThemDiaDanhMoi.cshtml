@@ -1,0 +1,61 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.DIADANH
+
+@{
+    ViewBag.Title = "ThemDiaDanhMoi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 30px; margin-left: 25px">THÊM ĐỊA DANH MỚI</h2>
+
+@using (Html.BeginForm("ThemDiaDanhMoi", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.TenDiaDanh, "Tên địa danh", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenDiaDanh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenDiaDanh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.MaHuyen, "Tên huyện", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaHuyen")
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.MaHinhAnh, "Hình ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="upload" />
+                @ViewBag.ThongBao
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.GioiThieu, "Giới thiệu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea class="form-control" name="GioiThieu" id="NhapGioiThieu"></textarea>
+                
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            <div style="padding-top: 15px" class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo" class="btn btn-success" />
+                @Html.ActionLink("Quay lại", "DanhSachDiaDanh", "Admin", new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Script{
+    <script>
+        CKEDITOR.replace('NhapGioiThieu')
+    </script>
+}

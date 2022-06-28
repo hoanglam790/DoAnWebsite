@@ -81,3 +81,7 @@ D:\ASP.NET_MVC (LapTrinhWeb)\DoAnMonHoc\WebsiteDuLichDiaPhuong\WebsiteDuLichDiaP
 D:\ASP.NET_MVC (LapTrinhWeb)\DoAnMonHoc\WebsiteDuLichDiaPhuong\WebsiteDuLichDiaPhuong\bin\EntityFramework.SqlServer.dll
 D:\ASP.NET_MVC (LapTrinhWeb)\DoAnMonHoc\WebsiteDuLichDiaPhuong\WebsiteDuLichDiaPhuong\bin\EntityFramework.xml
 D:\ASP.NET_MVC (LapTrinhWeb)\DoAnMonHoc\WebsiteDuLichDiaPhuong\WebsiteDuLichDiaPhuong\bin\EntityFramework.SqlServer.xml
+D:\ASP.NET_MVC (LapTrinhWeb)\DoAnMonHoc\WebsiteDuLichDiaPhuong\WebsiteDuLichDiaPhuong\bin\PagedList.dll
+D:\ASP.NET_MVC (LapTrinhWeb)\DoAnMonHoc\WebsiteDuLichDiaPhuong\WebsiteDuLichDiaPhuong\bin\PagedList.Mvc.dll
+D:\ASP.NET_MVC (LapTrinhWeb)\DoAnMonHoc\WebsiteDuLichDiaPhuong\WebsiteDuLichDiaPhuong\bin\PagedList.xml
+D:\ASP.NET_MVC (LapTrinhWeb)\DoAnMonHoc\WebsiteDuLichDiaPhuong\WebsiteDuLichDiaPhuong\bin\PagedList.Mvc.xml

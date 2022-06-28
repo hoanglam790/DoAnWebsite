@@ -6,10 +6,9 @@
 }
 
 <!-- Hiển thị các tin tức nổi bật - Bắt đầu -->
-
 <div class="container-fluid pt-5">
-    <div class="text-center mb-4">
-        <h2 style="text-align: center; color: black; font-size: 26px; font-weight: bold; padding-top: 30px; margin-left: 60px"> MỘT SỐ TIN TỨC NỔI BẬT</h2>
+    <div style="margin-left: 48px; margin-right: 48px; background-color: pink" class="cat-item d-flex flex-column border text-center mb-4">
+        <h2 style="text-align: center; color: black; font-size: 26px; font-weight: bold; padding-top: 20px; margin-left: 60px"> MỘT SỐ TIN TỨC NỔI BẬT</h2>
     </div>
     <div class="row px-xl-5 pb-3">
         @foreach (var item in Model)
@@ -26,32 +25,26 @@
     </div>
 </div>
 <!-- Hiển thị các tin tức nổi bật - Kết thúc -->
-<!-- Offer Start -->
-<div class="container-fluid offer pt-5">
-    <div class="row px-xl-5">
-        <div class="col-md-6 pb-4">
-            <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
-                <img src="img/offer-1.png" alt="">
-                <div class="position-relative" style="z-index: 1;">
-                    <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
-                    <h1 class="mb-4 font-weight-semi-bold">Spring Collection</h1>
-                    <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
+<!-- Hiển thị một số sự kiện nổi bật - Bắt đầu -->
+<div class="container-fluid pt-5">
+    <div style="margin-left: 48px; margin-right: 48px; background-color: orchid" class="cat-item d-flex flex-column border text-center mb-4">
+        <h2 style="text-align: center; color: white; font-size: 26px; font-weight: bold; padding-top: 20px; margin-left: 60px"> MỘT SỐ SỰ KIỆN NỔI BẬT</h2>
+    </div>
+    <div class="row px-xl-5 pb-3">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <p class="text-center">@item.TieuDe</p>
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="~/Images/@item.HINHANH.TenHinhAnh" style="width: 400px; height: 250px" alt="">
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 pb-4">
-            <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
-                <img src="img/offer-2.png" alt="">
-                <div class="position-relative" style="z-index: 1;">
-                    <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
-                    <h1 class="mb-4 font-weight-semi-bold">Winter Collection</h1>
-                    <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </div>
-<!-- Offer End -->
+<!-- Hiển thị một số sự kiện nổi bật - Kết thúc -->
 <!-- Products Start -->
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">

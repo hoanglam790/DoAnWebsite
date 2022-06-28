@@ -31,17 +31,9 @@
     <link href="~/AssetsAdmin/css/style.css" rel="stylesheet" />
 
     <!-- Tinymce -->
-    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            forced_root_block: "",
-            force_br_newlines: true,
-            force_p_newlines: false,
-        });
-    </script>
-</head>
+    
 
+</head>
 <body>
     <div class="container-fluid position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
@@ -49,7 +41,7 @@
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
-        </div>
+        </div> <img src="~/Images/" alt="Alternate Text" />
         <!-- Spinner End -->
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
@@ -69,12 +61,12 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="table.html" class="nav-item nav-link">Quản lý tài khoản</a>
-                    <a href="@Url.Action("DanhSachQuanHuyen", "Admin")" class="nav-item nav-link">Quản lý quận huyện</a>
-                    <a href="widget.html" class="nav-item nav-link">Quản lý địa danh</a>
+                    <a href="@Url.Action("DanhSachQuanHuyen", "QuanHuyen")" class="nav-item nav-link">Quản lý quận huyện</a>
+                    <a href="@Url.Action("DanhSachDiaDanh", "DiaDanh")" class="nav-item nav-link">Quản lý địa danh</a>
                     <a href="form.html" class="nav-item nav-link">Quản lý tin tức</a>
                     <a href="table.html" class="nav-item nav-link">Quản lý thể loại tin</a>
                     <a href="table.html" class="nav-item nav-link">Quản lý hình ảnh</a>
-                    <a href="table.html" class="nav-item nav-link">Quản lý khách sạn</a>
+                    <a href="@Url.Action("DanhSachKhachSan", "KhachSan")" class="nav-item nav-link">Quản lý khách sạn</a>
                     <a href="table.html" class="nav-item nav-link">Quản lý các tour du lịch</a>
                 </div>
             </nav>
@@ -144,6 +136,11 @@
     <script src="~/AssetsAdmin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
+
     <script src="~/AssetsAdmin/js/main.js"></script>
+    <script src="~/ckeditor5-build-classic/ckeditor.js"></script>
+    @RenderSection("Script", false)
+
+    <!--RenderSection("Scripts", required: false)-->
 </body>
 </html>

@@ -12,7 +12,6 @@ namespace WebsiteDuLichDiaPhuong.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TINTUC()
         {
-            DIADANHs = new HashSet<DIADANH>();
             TOURDULICHes = new HashSet<TOURDULICH>();
         }
 
@@ -30,9 +29,6 @@ namespace WebsiteDuLichDiaPhuong.Models
         public int MaTheLoai { get; set; }
 
         public int? MaHinhAnh { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DIADANH> DIADANHs { get; set; }
 
         public virtual HINHANH HINHANH { get; set; }
 
