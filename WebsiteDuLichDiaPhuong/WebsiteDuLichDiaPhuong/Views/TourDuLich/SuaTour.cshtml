@@ -1,0 +1,67 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.TOURDULICH
+
+@{
+    ViewBag.Title = "Sửa tour";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 30px; margin-left: 25px">SỬA TOUR</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaTour)
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.TenTour, "Tên tour", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTour, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTour, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.MieuTa, "Miêu tả", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MieuTa)
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.GiaTien, "Giá tiền", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaTien, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GiaTien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.MaHinhAnh, "Hình ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10"> Chọn ảnh mới
+                <input type="file" name="upload" />
+                <img src="@Url.Content("~/Images/" + Model.HINHANH.TenHinhAnh)" width="100px" alt="Alternate Text" /> Ảnh hiện tại
+                @ViewBag.ThongBao
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.DuongLink, "Link liên kết", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DuongLink, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DuongLink, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div  class="form-group">
+            <div style="padding-top: 30px; margin-left: 25px" class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-success" />
+                @Html.ActionLink("Quay về", "DanhSachTour", "TourDuLich", new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+}
+

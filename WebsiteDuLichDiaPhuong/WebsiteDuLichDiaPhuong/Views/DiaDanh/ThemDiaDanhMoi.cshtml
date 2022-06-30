@@ -40,7 +40,7 @@
         <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
             @Html.LabelFor(model => model.GioiThieu, "Giới thiệu", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <textarea class="form-control" name="GioiThieu" id="NhapGioiThieu"></textarea>
+                @Html.TextAreaFor(model => model.GioiThieu)
                 
             </div>
         </div>
@@ -52,10 +52,4 @@
             </div>
         </div>
     </div>
-}
-
-@section Script{
-    <script>
-        CKEDITOR.replace('NhapGioiThieu')
-    </script>
 }

@@ -26,6 +26,11 @@
 </head>
 
 <body>
+    <style>
+        body{
+            background-color: cornsilk;
+        }
+    </style>
     <!-- Topbar Start -->
     <div class="container-fluid">
         <div class="row align-items-center py-3 px-xl-5">
@@ -40,7 +45,9 @@
                         <input type="text" class="form-control" placeholder="Tìm kiếm">
                         <div class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
+                                <button class="btn btn-default" type="submit" style="height: 10px">
+                                    <i class="fa fa-search"></i>
+                                </button>                              
                             </span>
                         </div>
                     </div>
@@ -51,10 +58,10 @@
     <!-- Topbar End -->
     <!-- Navbar Start -->
     <div class="container-fluid mb-5">
-        <div style="background-color: moccasin" class="row border-top px-xl-5">
+        <div style="background-color: bisque" class="row border-top px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                    <h6 class="m-0">Danh sách các quận/huyện</h6>
+                    <h6 style="font-weight: bold" class="m-0">Danh sách các quận/huyện</h6>
                     <i class="fa fa-angle-down text-dark"></i>
                 </a>
                 <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
@@ -74,15 +81,11 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dịch vụ</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Nhà hàng</a>
-                                    <a href="checkout.html" class="dropdown-item">Tour du lịch</a>
+                                    <a href="@Url.Action("NhaHang", "DuLichDiaPhuong")" class="dropdown-item">Nhà hàng</a>
+                                    <a href="@Url.Action("TourDuLich", "DuLichDiaPhuong")" class="dropdown-item">Tour du lịch</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Khách sạn</a>
-                        </div>
-                        <div class="navbar-nav ml-auto py-0">
-                            <a href="" class="nav-item nav-link">Đăng nhập</a>
-                            <a href="" class="nav-item nav-link">Đăng ký</a>
+                            <a href="@Url.Action("KhachSan", "DuLichDiaPhuong")" class="nav-item nav-link">Khách sạn</a>
                         </div>
                     </div>
                 </nav>
@@ -136,27 +139,27 @@
                 <a href="" class="text-decoration-none">
                     <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">Team Đụt</span>Travel</h1>
                 </a>
-                <p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum dolore amet erat.</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>hoanglamxh790@gmail.com</p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>0912 567 790</p>
+                <p>Trang web của chúng tôi luôn mang đến những trải nghiệm tốt nhất về du lịch địa phương.</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>13, Tống Duy Tân, Phường 14, Quận 5, TP.HCM</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>binhlai2212@gmail.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>0835 239 239</p>
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="row">
                     <div class="col-md-4 mb-5">
                         <h5 class="font-weight-bold text-dark mb-4">Liên kết nhanh</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
-                            <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Tin tức</a>
+                            <a class="text-dark mb-2" href="@Url.Action("TrangChu", "DuLichDiaPhuong")"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
+                            <a class="text-dark mb-2" href="@Url.Action("TinTuc", "DuLichDiaPhuong")"><i class="fa fa-angle-right mr-2"></i>Tin tức</a>
                             <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Sự kiện</a>
                             <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Dịch vụ</a>
                             <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Khách sạn</a>
-                            <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
+                            <a class="text-dark" href="@Url.Action("LienHe", "DuLichDiaPhuong")"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
                         <h5 class="font-weight-bold text-dark mb-4">Địa chỉ liên hệ</h5>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.218468669598!2d108.20045008356445!3d16.054149028565007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421990bdb1c4dd%3A0x18b84166fc2f4254!2zRFUgTOG7ikNIIMSQw4AgTuG6tE5H!5e0!3m2!1svi!2s!4v1656324274916!5m2!1svi!2s" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2280.7730349938524!2d106.65745806727504!3d10.751395283781276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ef4250eaaf3%3A0xc38dbb31cefe6ed3!2zMTMgVOG7kW5nIER1eSBUw6JuLCBQaMaw4budbmcgMTQsIFF14bqtbiA1LCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1656521257569!5m2!1svi!2s" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -164,7 +167,7 @@
         <div class="row border-top border-light mx-xl-5 py-4">
             <div class="col-md-6 px-xl-0">
                 <p class="mb-md-0 text-center text-md-left text-dark">
-                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Your Site Name</a>. All Rights Reserved.
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Sang-Dat-Binh-Lam</a>.
                 </p>
             </div>
             <div class="col-md-6 px-xl-0 text-center text-md-right">

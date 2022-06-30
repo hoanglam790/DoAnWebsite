@@ -1,0 +1,16 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.TOURDULICH
+
+@{
+    ViewBag.Title = "Chi tiết tour";
+    Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+
+<h2 style="margin-left: 90px; font-size: 48px">Chi tiết tour du lịch</h2>
+
+<h2 style="text-align: center; color: cornflowerblue; padding-top: 40px; text-transform: uppercase"> @Model.TenTour</h2>
+<div class="container-fluid pt-5">
+    <p style="color: brown; padding-top: 10px; margin-left: 80px"><span style="font-weight: bold"></span> @Model.MieuTa </p>
+    <a href="@Model.DuongLink" class="cat-img position-relative overflow-hidden mb-3 d-flex justify-content-center">
+        <img class="img-fluid " src="~/Images/@Model.HINHANH.TenHinhAnh" style="max-width: 70%; padding-top: 10px; margin-left: 80px" alt="">
+    </a>
+</div>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebsiteDuLichDiaPhuong.Models.NHAHANG>
+
+@{
+    var a = "";
+    ViewBag.Title = "Nhà hàng";
+    Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+
+<br />
+<h2 style="font-family: Arial; text-align: center; color: orange "><strong>NHÀ HÀNG</strong></h2>
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <a href="@Url.Action("ChiTietNhaHang", "DuLichDiaPhuong", new {id = item.MaNhaHang})" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="~/Images/@item.HINHANH.TenHinhAnh" style="width: 400px; height: 250px" alt="">
+                    </a>
+                    <p style="font-weight: bold; text-transform: uppercase" class="text-center">@item.TenNhaHang</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

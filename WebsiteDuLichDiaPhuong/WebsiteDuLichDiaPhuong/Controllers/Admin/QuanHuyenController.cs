@@ -79,26 +79,5 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
             }
             return View(huyen);
         }
-
-        public ActionResult XoaQuanHuyen(int id)
-        {
-            HUYEN huyen = dbDuLich.HUYENs.SingleOrDefault(n => n.MaHuyen == id);
-            if (huyen == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            return View(huyen);
-        }
-
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult XoaQuanHuyen(int id, HUYEN huyen)
-        {
-            var xoaHuyen = dbDuLich.HUYENs.SingleOrDefault(p => p.MaHuyen == id);
-            dbDuLich.HUYENs.Remove(xoaHuyen);
-            dbDuLich.SaveChanges();
-            return RedirectToAction("DanhSachQuanHuyen");
-        }
     }
 }

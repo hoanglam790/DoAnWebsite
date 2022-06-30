@@ -13,27 +13,29 @@
         @foreach (var item in Model)
         {
             <div style="padding-right: 60px; margin-top: 30px" class="col-lg-4 col-md-6 pb-1">
-                <p class="text-center"> <strong>@item.TieuDe</strong> </p>
-                <a href="@Url.Action("ChiTietSuKien", "DuLichDiaPhuong", new {id = item.MaTinTuc})" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="~/Images/@item.HINHANH.TenHinhAnh" style="width: 400px; height: 250px" alt="">
-                </a>
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 15px">
+                    <p class="text-center"> <strong>@item.TieuDe</strong> </p>
+                    <a href="@Url.Action("ChiTietSuKien", "DuLichDiaPhuong", new {id = item.MaTinTuc})" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="~/Images/@item.HINHANH.TenHinhAnh" style="width: 400px; height: 250px" alt="">
+                    </a>
 
-                @if (item.NoiDungTinTuc != null)
-                {
-                    if (item.NoiDungTinTuc.Length < 100)
+                    @if (item.NoiDungTinTuc != null)
                     {
-                        a = item.NoiDungTinTuc.ToString();
+                        if (item.NoiDungTinTuc.Length < 100)
+                        {
+                            a = item.NoiDungTinTuc.ToString();
+                        }
+                        else
+                        {
+                            a = item.NoiDungTinTuc.Substring(0, 200);
+                        }
+                        <p style="text-align: justify">@a <label>...</label> @Html.ActionLink("Xem thêm", "ChiTietSuKien", new { id = item.MaTinTuc })</p>
                     }
                     else
                     {
-                        a = item.NoiDungTinTuc.Substring(0, 200);
+                        @Html.DisplayFor(modelItem => item.NoiDungTinTuc)
                     }
-                    <p style="text-align: justify">@a <label>...</label> @Html.ActionLink("Xem thêm", "ChiTietSuKien", new { id = item.MaTinTuc })</p>
-                }
-                else
-                {
-                    @Html.DisplayFor(modelItem => item.NoiDungTinTuc)
-                }
+                </div>
             </div>
         }
     </div>

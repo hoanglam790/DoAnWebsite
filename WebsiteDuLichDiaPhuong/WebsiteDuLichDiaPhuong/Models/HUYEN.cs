@@ -14,7 +14,6 @@ namespace WebsiteDuLichDiaPhuong.Models
         {
             DIADANHs = new HashSet<DIADANH>();
             KHACHSANs = new HashSet<KHACHSAN>();
-            TOURDULICHes = new HashSet<TOURDULICH>();
         }
 
         [Key]
@@ -33,8 +32,5 @@ namespace WebsiteDuLichDiaPhuong.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KHACHSAN> KHACHSANs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TOURDULICH> TOURDULICHes { get; set; }
     }
 }

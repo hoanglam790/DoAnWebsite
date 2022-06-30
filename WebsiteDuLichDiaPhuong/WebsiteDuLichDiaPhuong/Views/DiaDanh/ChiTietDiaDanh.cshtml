@@ -1,0 +1,50 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.DIADANH
+
+@{
+    ViewBag.Title = "Chi tiết địa danh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 30px; margin-left: 25px">CHI TIẾT ĐỊA DANH</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Tên địa danh:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.DisplayFor(model => model.TenDiaDanh)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Tên huyện:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.DisplayFor(model => model.HUYEN.TenHuyen)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Hình ảnh
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            <img src="@Url.Content("~/Images/" + Model.HINHANH.TenHinhAnh)" width="160px" alt="HinhAnh" />
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Giới thiệu:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.Raw(Model.GioiThieu)
+        </dd>
+
+    </dl>
+</div>
+<p style="padding-top: 30px; margin-left: 25px">
+    @Html.ActionLink("Chỉnh sửa", "SuaDiaDanh", new { id = Model.MaDiaDanh }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Quay về", "DanhSachDiaDanh", "DiaDanh", new { @class = "btn btn-danger" })
+</p>

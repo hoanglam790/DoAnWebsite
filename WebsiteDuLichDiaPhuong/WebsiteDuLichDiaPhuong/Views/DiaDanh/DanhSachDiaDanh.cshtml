@@ -27,9 +27,6 @@
 <table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px">
     <tr>
         <th style="text-align: center; font-weight: bold">
-            Mã địa danh
-        </th>
-        <th style="text-align: center; font-weight: bold">
             Tên địa danh
         </th>
         <th style="text-align: center; font-weight: bold">
@@ -50,9 +47,6 @@
     {
         <tr>
             <td style="text-align: center">
-                @Html.DisplayFor(modelItem => item.MaDiaDanh)
-            </td>
-            <td style="text-align: center">
                 @Html.DisplayFor(modelItem => item.TenDiaDanh)
             </td>
             <td style="text-align: center">
@@ -67,7 +61,6 @@
             <td>
                 @Html.ActionLink("Sửa", "SuaDiaDanh", new { id = item.MaDiaDanh }, new { @class = "btn btn-warning" })
                 @Html.ActionLink("Chi tiết", "ChiTietDiaDanh", new { id = item.MaDiaDanh }, new { @class = "btn btn-info" })
-                @Html.ActionLink("Xóa", "XoaDiaDanh", new { id = item.MaDiaDanh }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

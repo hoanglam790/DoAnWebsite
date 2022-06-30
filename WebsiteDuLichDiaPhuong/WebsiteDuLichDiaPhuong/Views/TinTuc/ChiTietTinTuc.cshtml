@@ -1,0 +1,50 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.TINTUC
+
+@{
+    ViewBag.Title = "Chi tiết tin tức";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CHI TIẾT TIN TỨC</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Hình Ảnh
+        </dt>
+
+        <dd style="padding-top: 15px; margin-left: 25px">
+            @Html.DisplayFor(model => model.HINHANH.TenHinhAnh)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Thể loại
+        </dt>
+
+        <dd style="padding-top: 15px; margin-left: 25px">
+            @Html.DisplayFor(model => model.THELOAITIN.TenTheLoai)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Tiêu Đề
+        </dt>
+
+        <dd style="padding-top: 15px; margin-left: 25px">
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Nội dung tin tức
+        </dt>
+
+        <dd style="text-align: justify; padding-top: 15px; margin-left: 25px">
+            @Html.DisplayFor(model => model.NoiDungTinTuc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "SuaTinTuc", new { id = Model.MaTinTuc }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Quay lại", "DanhSachTinTuc", "Admin", new { @class = "btn btn-danger" })
+</p>

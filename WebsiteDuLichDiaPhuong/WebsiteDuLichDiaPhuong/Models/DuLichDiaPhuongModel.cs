@@ -16,6 +16,7 @@ namespace WebsiteDuLichDiaPhuong.Models
         public virtual DbSet<HINHANH> HINHANHs { get; set; }
         public virtual DbSet<HUYEN> HUYENs { get; set; }
         public virtual DbSet<KHACHSAN> KHACHSANs { get; set; }
+        public virtual DbSet<NHAHANG> NHAHANGs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
         public virtual DbSet<THELOAITIN> THELOAITINs { get; set; }
@@ -39,23 +40,17 @@ namespace WebsiteDuLichDiaPhuong.Models
                 .WithRequired(e => e.HUYEN)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<HUYEN>()
-                .HasMany(e => e.TOURDULICHes)
-                .WithRequired(e => e.HUYEN)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<KHACHSAN>()
                 .Property(e => e.SĐT)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NHAHANG>()
+                .Property(e => e.SDT)
                 .IsUnicode(false);
 
             modelBuilder.Entity<THELOAITIN>()
                 .HasMany(e => e.TINTUCs)
                 .WithRequired(e => e.THELOAITIN)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TINTUC>()
-                .HasMany(e => e.TOURDULICHes)
-                .WithRequired(e => e.TINTUC)
                 .WillCascadeOnDelete(false);
         }
     }

@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>XÓA KHÁCH SẠN</h2>
+<h2>XÓA THÔNG TIN KHÁCH SẠN</h2>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
 
         <dt>
-            @Html.DisplayNameFor(model => model.TenKS)
+            Tên khách sạn
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
+            Địa chỉ
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SĐT)
+            Số điện thoại
         </dt>
 
         <dd>
@@ -36,11 +36,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MaHuyen)
+            Tên huyện
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MaHuyen)
+            @Html.DisplayFor(model => model.HUYEN.TenHuyen)
         </dd>
 
     </dl>
@@ -50,8 +50,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-warning" /> |
-            @Html.ActionLink("Quay về", "DanhSachKhachSan", "Admin", new { @class = "btn btn-danger" })
+            <input type="submit" value="Xóa" class="btn btn-warning" />
+            @Html.ActionLink("Quay về", "DanhSachKhachSan", "KhachSan", new { @class = "btn btn-danger" })
         </div>
     }
 </div>

@@ -9,12 +9,6 @@ namespace WebsiteDuLichDiaPhuong.Models
     [Table("TINTUC")]
     public partial class TINTUC
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TINTUC()
-        {
-            TOURDULICHes = new HashSet<TOURDULICH>();
-        }
-
         [Key]
         public int MaTinTuc { get; set; }
 
@@ -30,11 +24,10 @@ namespace WebsiteDuLichDiaPhuong.Models
 
         public int? MaHinhAnh { get; set; }
 
+        public DateTime? NgayCapNhat { get; set; }
+
         public virtual HINHANH HINHANH { get; set; }
 
         public virtual THELOAITIN THELOAITIN { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TOURDULICH> TOURDULICHes { get; set; }
     }
 }

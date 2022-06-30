@@ -1,0 +1,49 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteDuLichDiaPhuong.Models.HINHANH>
+
+@{
+    ViewBag.Title = "Danh sách hình ảnh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 20px; margin-left: 10px">DANH SÁCH HÌNH ẢNH</h2>
+
+<p style="margin-left: 10px">
+    @Html.ActionLink("Thêm mới", "ThemAnhMoi", "Admin", new { @class = "btn btn-success" })
+</p>
+<table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px">
+    <tr>
+        <th style="text-align: center; font-weight: bold">
+            Tên hình ảnh
+        </th>
+        <th style="text-align: center; font-weight: bold">
+            Mô tả hình ảnh
+        </th>
+        <th style="text-align: center; font-weight: bold">
+            Chức năng
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: center">
+                <img src="~/Images/@item.TenHinhAnh" width="160px" alt="HinhAnh" />
+            </td>
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.MoTaHinhAnh)
+            </td>
+            <td style="text-align: center">
+                @Html.ActionLink("Sửa", "SuaAnh", new { id = item.MaHinhAnh }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Chi tiết", "ChiTietAnh", new { id = item.MaHinhAnh }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Xóa", "XoaAnh", new { id = item.MaHinhAnh }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="col-md-12 text-center clear-both">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachHinhAnh",
+    new { page = page }))
+</div>

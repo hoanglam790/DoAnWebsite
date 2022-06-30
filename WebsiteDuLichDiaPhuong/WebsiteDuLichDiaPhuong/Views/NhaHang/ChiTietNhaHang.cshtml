@@ -1,0 +1,42 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.NHAHANG
+
+@{
+    ViewBag.Title = "ChiTietNhaHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 30px; margin-left: 25px">CHI TIẾT NHÀ HÀNG</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            TÊN NHÀ HÀNG:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNhaHang)
+        </dd>
+
+        <dt>
+            ĐỊA CHỈ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            SỐ ĐIỆN THOẠI:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "SuaNhaHang", new { id = Model.MaNhaHang }) |
+    @Html.ActionLink("Quay về", "DanhSachNhaHang")
+</p>

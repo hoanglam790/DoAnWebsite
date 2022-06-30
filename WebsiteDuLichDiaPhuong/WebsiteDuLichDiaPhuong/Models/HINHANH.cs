@@ -13,6 +13,8 @@ namespace WebsiteDuLichDiaPhuong.Models
         public HINHANH()
         {
             DIADANHs = new HashSet<DIADANH>();
+            KHACHSANs = new HashSet<KHACHSAN>();
+            NHAHANGs = new HashSet<NHAHANG>();
             TINTUCs = new HashSet<TINTUC>();
             TOURDULICHes = new HashSet<TOURDULICH>();
         }
@@ -29,6 +31,12 @@ namespace WebsiteDuLichDiaPhuong.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DIADANH> DIADANHs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KHACHSAN> KHACHSANs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NHAHANG> NHAHANGs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TINTUC> TINTUCs { get; set; }

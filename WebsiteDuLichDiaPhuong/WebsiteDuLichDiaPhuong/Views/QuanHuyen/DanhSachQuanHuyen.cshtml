@@ -26,9 +26,6 @@
 <table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px">
     <tr>
         <th style="text-align: center">
-            Mã huyện
-        </th>
-        <th style="text-align: center">
             Tên quận/huyện
         </th>
         <th style="text-align: center">
@@ -43,9 +40,6 @@
     {
         <tr>
             <td style="text-align: center">
-                @Html.DisplayFor(modelItem => item.MaHuyen)
-            </td>
-            <td style="text-align: center">
                 @Html.DisplayFor(modelItem => item.TenHuyen)
             </td>
             <td>
@@ -54,7 +48,6 @@
             <td>
                 @Html.ActionLink("Sửa", "SuaQuanHuyen", new { id = item.MaHuyen }, new { @class = "btn btn-warning" })
                 @Html.ActionLink("Chi tiết", "ChiTietQuanHuyen", new { id = item.MaHuyen }, new { @class = "btn btn-info" })
-                @Html.ActionLink("Xóa", "XoaQuanHuyen", new { id = item.MaHuyen }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

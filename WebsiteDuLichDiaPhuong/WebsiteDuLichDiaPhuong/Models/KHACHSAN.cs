@@ -26,6 +26,10 @@ namespace WebsiteDuLichDiaPhuong.Models
 
         public int? MaHuyen { get; set; }
 
+        public int? MaHinhAnh { get; set; }
+
+        public virtual HINHANH HINHANH { get; set; }
+
         public virtual HUYEN HUYEN { get; set; }
     }
 }

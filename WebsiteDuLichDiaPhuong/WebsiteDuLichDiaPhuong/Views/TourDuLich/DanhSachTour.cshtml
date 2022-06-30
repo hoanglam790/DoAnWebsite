@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebsiteDuLichDiaPhuong.Models.TOURDULICH>
+
+@{
+    ViewBag.Title = "Danh sách tour";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 20px; margin-left: 10px">DANH SÁCH TOUR DU LỊCH</h2>
+
+<p style="margin-left: 10px">
+    @Html.ActionLink("Tạo mới", "ThemTour", "TourDuLich", new { @class = "btn btn-success"} )
+</p>
+<table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px"">
+    <tr>
+        <th style="text-align: center">
+            Tên tour
+        </th>
+        <th style="text-align: center">
+            Miêu tả
+        </th>
+        <th style="text-align: center">
+            Giá tiền
+        </th>
+        <th style="text-align: center">
+            Hình ảnh
+        </th>
+        <th style="text-align: center">
+            Link liên kết
+        </th>
+        <th style="text-align: center">
+            Chức năng
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="text-align: center">
+            @Html.DisplayFor(modelItem => item.TenTour)
+        </td>
+        <td style="text-align: center">
+            @Html.DisplayFor(modelItem => item.MieuTa)
+        </td>
+        <td style="text-align: center">
+            @Html.DisplayFor(modelItem => item.GiaTien)
+        </td>
+        <td style="text-align: center">
+            <img src="~/Images/@item.HINHANH.TenHinhAnh" width="160px" alt="HinhAnh" />
+        </td>
+        <td style="text-align: center">
+            @Html.DisplayFor(modelItem => item.DuongLink)
+        </td>
+        <td style="text-align: center">
+            @Html.ActionLink("Sửa", "SuaTour", new { id=item.MaTour }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Chi tiết", "ChiTietTour", new { id=item.MaTour }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Xóa", "XoaTour", new { id=item.MaTour }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

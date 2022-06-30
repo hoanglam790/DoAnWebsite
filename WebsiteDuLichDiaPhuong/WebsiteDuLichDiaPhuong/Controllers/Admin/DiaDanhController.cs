@@ -71,6 +71,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         // Sửa thông tin
         public ActionResult SuaDiaDanh(int id)
         {
+            ViewBag.MaHuyen = new SelectList(dbDuLich.HUYENs.ToList(), "MaHuyen", "TenHuyen");
             DIADANH diaDanh = dbDuLich.DIADANHs.SingleOrDefault(n => n.MaDiaDanh == id);
             if (diaDanh == null)
             {
@@ -82,20 +83,41 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult SuaDiaDanh(DIADANH diaDanh)
+        public ActionResult SuaDiaDanh(DIADANH diaDanh, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
+            ViewBag.MaHuyen = new SelectList(dbDuLich.HUYENs.ToList(), "MaHuyen", "TenHuyen");
+            if (upload == null)
             {
-                var suaDiaDanh = dbDuLich.DIADANHs.SingleOrDefault(p => p.MaDiaDanh == diaDanh.MaDiaDanh);
-                suaDiaDanh.TenDiaDanh = diaDanh.TenDiaDanh;
-                suaDiaDanh.MaHuyen = int.Parse(diaDanh.HUYEN.TenHuyen);
-                suaDiaDanh.MaHinhAnh = int.Parse(diaDanh.HINHANH.TenHinhAnh);
-                suaDiaDanh.GioiThieu = diaDanh.GioiThieu;
-                UpdateModel(suaDiaDanh);
-                dbDuLich.SaveChanges();
-                return RedirectToAction("DanhSachDiaDanh", diaDanh);
+                ViewBag.Thongbao = "Vui lòng chọn hình ảnh";
+                return View();
             }
-            return View(diaDanh);
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    var fileName = Path.GetFileName(upload.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                    }
+                    else
+                    {
+                        upload.SaveAs(path);
+                    }
+                    DIADANH dd = new DIADANH();
+                    HINHANH hinh = new HINHANH();
+                    dd.TenDiaDanh = diaDanh.TenDiaDanh;
+                    dd.MaHuyen = diaDanh.MaHuyen;
+                    hinh.TenHinhAnh = fileName;
+                    dd.MaHinhAnh = diaDanh.MaHinhAnh;
+                    dd.GioiThieu = diaDanh.GioiThieu;
+                    dbDuLich.HINHANHs.Add(hinh);
+                    UpdateModel(dd);
+                    dbDuLich.SaveChanges();
+                }
+                return RedirectToAction("DanhSachDiaDanh");
+            }
         }
 
         public ActionResult ChiTietDiaDanh(int id)
@@ -107,27 +129,6 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
                 return null;
             }
             return View(diaDanh);
-        }
-
-        public ActionResult XoaDiaDanh(int id)
-        {
-            DIADANH diaDanh = dbDuLich.DIADANHs.SingleOrDefault(n => n.MaDiaDanh == id);
-            if (diaDanh == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            return View(diaDanh);
-        }
-
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult XoaDiaDanh(int id, DIADANH diaDanh)
-        {
-            var xoaDiaDanh = dbDuLich.DIADANHs.SingleOrDefault(p => p.MaDiaDanh == id);
-            dbDuLich.DIADANHs.Remove(xoaDiaDanh);
-            dbDuLich.SaveChanges();
-            return RedirectToAction("DanhSachDiaDanh");
         }
     }
 }

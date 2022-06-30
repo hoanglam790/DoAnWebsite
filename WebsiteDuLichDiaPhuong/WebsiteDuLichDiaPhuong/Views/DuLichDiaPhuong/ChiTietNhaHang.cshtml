@@ -1,0 +1,16 @@
+﻿
+@model WebsiteDuLichDiaPhuong.Models.NHAHANG
+@{
+    ViewBag.Title = "ChiTietNhaHang";
+    Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
+}
+<h2 style="color: orangered; text-align: center">CHI TIẾT NHÀ HÀNG</h2>
+<div class="container-fluid pt-5">
+    <a href="#" class="cat-img position-relative overflow-hidden mb-3 d-flex justify-content-center">
+        <img class="img-fluid " src="~/Images/@Model.HINHANH.TenHinhAnh" style="max-width: 70%; padding-top: 10px; margin-left: 80px" alt="">
+    </a>
+    <p style="color: brown; padding-top: 40px; margin-left: 80px"><span style="font-weight: bold"> Tên nhà hàng: </span> @Model.TenNhaHang </p>
+    <p style="color: brown; padding-top: 40px; margin-left: 80px"><span style="font-weight: bold"> Địa chỉ: </span> @Model.DiaChi </p>
+    <p style="color: brown; padding-top: 40px; margin-left: 80px"><span style="font-weight: bold"> Số điện thoại: </span> @Model.SDT </p>
+</div>
+

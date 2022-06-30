@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebsiteDuLichDiaPhuong.Models.TINTUC>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Danh sách tin tức";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 20px; margin-left: 10px">DANH SÁCH TIN TỨC</h2>
+<p style="margin-left: 10px">
+    @Html.ActionLink("Tạo mới", "ThemTinTuc", "TinTuc", new { @class = "btn btn-success" })
+</p>
+
+<table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px">
+    <tr>
+        <th style="text-align: center">
+            Tiêu đề
+        </th>
+        <th style="text-align: center">
+            Nội dung tin tức
+        </th>
+        <th style="text-align: center">
+            Tên Thể Loại
+        </th>
+        <th style="text-align: center">
+            Hình ảnh
+        </th>
+        <th style="text-align: center">
+            Ngày cập nhật
+        </th>
+        <th style="text-align: center">
+            Chức năng
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.TieuDe)
+            </td>
+            <td>
+                @Truncate(item.NoiDungTinTuc, 80)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THELOAITIN.TenTheLoai)
+            </td>
+            <td>
+                <img src="~/Images/@item.HINHANH.TenHinhAnh" width="160px" alt="HinhAnh" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaTinTuc", new { id = item.MaTinTuc }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Chi tiết", "ChiTietTinTuc", new { id = item.MaTinTuc }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Xóa", "XoaTinTuc", new { id = item.MaTinTuc }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
