@@ -57,6 +57,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
                 t.MaTheLoai = tintuc.MaTheLoai;
                 h.TenHinhAnh = fileName;
                 t.MaHinhAnh = tintuc.MaHinhAnh;
+                t.NgayCapNhat = tintuc.NgayCapNhat;
                 dbDuLich.TINTUCs.Add(t);
                 dbDuLich.HINHANHs.Add(h);
                 dbDuLich.SaveChanges();
