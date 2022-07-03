@@ -40,29 +40,26 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
             }
             else
             {
-                if (ModelState.IsValid)
+                var fileName = Path.GetFileName(upload.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                if (System.IO.File.Exists(path))
                 {
-                    var fileName = Path.GetFileName(upload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                    }
-                    else
-                    {
-                        upload.SaveAs(path);
-                    }
-                    TINTUC t = new TINTUC();
-                    HINHANH h = new HINHANH();
-                    t.TieuDe = tintuc.TieuDe;
-                    t.NoiDungTinTuc = tintuc.NoiDungTinTuc;
-                    t.MaTheLoai = tintuc.MaTheLoai;
-                    h.TenHinhAnh = fileName;
-                    t.MaHinhAnh = tintuc.MaHinhAnh;
-                    dbDuLich.TINTUCs.Add(t);
-                    dbDuLich.HINHANHs.Add(h);
-                    dbDuLich.SaveChanges();
+                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
                 }
+                else
+                {
+                    upload.SaveAs(path);
+                }
+                TINTUC t = new TINTUC();
+                HINHANH h = new HINHANH();
+                t.TieuDe = tintuc.TieuDe;
+                t.NoiDungTinTuc = tintuc.NoiDungTinTuc;
+                t.MaTheLoai = tintuc.MaTheLoai;
+                h.TenHinhAnh = fileName;
+                t.MaHinhAnh = tintuc.MaHinhAnh;
+                dbDuLich.TINTUCs.Add(t);
+                dbDuLich.HINHANHs.Add(h);
+                dbDuLich.SaveChanges();
                 return RedirectToAction("DanhSachTinTuc");
             }
         }
@@ -91,8 +88,8 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
                 var suaTinTuc = dbDuLich.TINTUCs.SingleOrDefault(p => p.MaTinTuc == tintuc.MaTinTuc);
                 suaTinTuc.TieuDe = tintuc.TieuDe;
                 suaTinTuc.NoiDungTinTuc = tintuc.NoiDungTinTuc;
-                suaTinTuc.MaTheLoai = int.Parse(tintuc.THELOAITIN.TenTheLoai);
-                suaTinTuc.MaHinhAnh = int.Parse(tintuc.HINHANH.TenHinhAnh);
+                suaTinTuc.MaTheLoai = tintuc.MaTheLoai;
+                suaTinTuc.MaHinhAnh = tintuc.MaHinhAnh;
                 UpdateModel(suaTinTuc);
                 dbDuLich.SaveChanges();
                 return RedirectToAction("DanhSachTinTuc", tintuc);

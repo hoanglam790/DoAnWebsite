@@ -1,11 +1,11 @@
 ﻿@model WebsiteDuLichDiaPhuong.Models.KHACHSAN
 
 @{
-    ViewBag.Title = "SuaKhachSan";
+    ViewBag.Title = "Sửa khách sạn";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>SỬA KHÁCH SẠN</h2>
+<h2 style="padding-top: 30px; margin-left: 25px">SỬA KHÁCH SẠN</h2>
 
 @using (Html.BeginForm())
 {
@@ -16,7 +16,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.MaKS)
 
-        <div class="form-group">
+        <div style="padding-top: 30px; margin-left: 25px" class="form-group">
             @Html.LabelFor(model => model.TenKS, "TÊN KHÁCH SẠN", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenKS, new { htmlAttributes = new { @class = "form-control" } })
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div style="padding-top: 30px; margin-left: 25px" class="form-group">
             @Html.LabelFor(model => model.DiaChi, "ĐỊA CHỈ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div style="padding-top: 30px; margin-left: 25px" class="form-group">
             @Html.LabelFor(model => model.SĐT, "SỐ ĐIỆN THOẠI", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SĐT, new { htmlAttributes = new { @class = "form-control" } })
@@ -40,17 +40,17 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaHuyen, "MÃ HUYỆN", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div style="padding-top: 30px; margin-left: 25px" class="form-group">
+            @Html.LabelFor(model => model.MaHuyen, "TÊN HUYỆN", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("MaHuyen")
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+        <div style="padding-top: 30px; margin-left: 25px" class="form-group">
+            <div style="padding-top: 15px" class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Lưu" class="btn btn-success" />
-                @Html.ActionLink("Quay về", "DanhSachKhachSan", "Admin", new { @class = "btn btn-primary" })
+                @Html.ActionLink("Quay về", "DanhSachKhachSan", "KhachSan", new { @class = "btn btn-primary" })
             </div>
         </div>
     </div>

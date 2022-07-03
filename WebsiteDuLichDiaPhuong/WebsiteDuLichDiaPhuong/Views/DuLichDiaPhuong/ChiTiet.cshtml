@@ -1,7 +1,7 @@
 ﻿
 @model WebsiteDuLichDiaPhuong.Models.DIADANH
 @{
-    ViewBag.Title = "ChiTiet";
+    ViewBag.Title = "Chi tiết địa danh";
     Layout = "~/Views/Shared/_LayoutNguoiDung.cshtml";
 }
 
@@ -9,7 +9,7 @@
 <div class="container-fluid pt-5">
 
     <p style="color: brown; padding-top: 40px; margin-left: 80px"><span style="font-weight: bold"> Tên địa danh: </span> @Model.TenDiaDanh </p>
-    <p style="color: brown; padding-top: 10px; margin-left: 80px"><span style="font-weight: bold"> Huyện: </span> @Model.HUYEN.TenHuyen </p>
+    <p style="color: brown; padding-top: 10px; margin-left: 80px"><span style="font-weight: bold"> Quận/huyện: </span> @Model.HUYEN.TenHuyen </p>
     <a href="" class="cat-img position-relative overflow-hidden mb-3">
         <img class="img-fluid" src="~/Images/@Model.HINHANH.TenHinhAnh" style="max-width: 100%; padding-top: 10px; margin-left: 80px" alt="">
     </a>

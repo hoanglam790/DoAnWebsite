@@ -1,45 +1,45 @@
 ﻿@model WebsiteDuLichDiaPhuong.Models.KHACHSAN
 
 @{
-    ViewBag.Title = "XoaKhachSan";
+    ViewBag.Title = "Xóa khách sạn";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>XÓA THÔNG TIN KHÁCH SẠN</h2>
+<h2 style="padding-top: 30px; margin-left: 25px">XÓA THÔNG TIN KHÁCH SẠN</h2>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
 
-        <dt>
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
             Tên khách sạn
         </dt>
 
-        <dd>
+        <dd style="padding-top: 30px; margin-left: 25px">
             @Html.DisplayFor(model => model.TenKS)
         </dd>
 
-        <dt>
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
             Địa chỉ
         </dt>
 
-        <dd>
+        <dd style="padding-top: 30px; margin-left: 25px">
             @Html.DisplayFor(model => model.DiaChi)
         </dd>
 
-        <dt>
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
             Số điện thoại
         </dt>
 
-        <dd>
+        <dd style="padding-top: 30px; margin-left: 25px">
             @Html.DisplayFor(model => model.SĐT)
         </dd>
 
-        <dt>
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
             Tên huyện
         </dt>
 
-        <dd>
+        <dd style="padding-top: 30px; margin-left: 25px">
             @Html.DisplayFor(model => model.HUYEN.TenHuyen)
         </dd>
 
@@ -49,7 +49,7 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
+        <div style="padding-top: 30px; margin-left: 25px" class="form-actions no-color">
             <input type="submit" value="Xóa" class="btn btn-warning" />
             @Html.ActionLink("Quay về", "DanhSachKhachSan", "KhachSan", new { @class = "btn btn-danger" })
         </div>

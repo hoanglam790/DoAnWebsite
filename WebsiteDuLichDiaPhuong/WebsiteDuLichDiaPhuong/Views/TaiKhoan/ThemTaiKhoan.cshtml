@@ -1,0 +1,48 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.TAIKHOAN
+
+@{
+    ViewBag.Title = "Thêm tài khoản";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 30px; margin-left: 25px">THÊM TÀI KHOẢN MỚI</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.TenTaiKhoan, "Tên tài khoản", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTaiKhoan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.MatKhau, "Mật khẩu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            @Html.LabelFor(model => model.TenHienThi, "Tên hiển thị", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenHienThi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenHienThi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+            <div style="padding-top: 15px" class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo" class="btn btn-success" />
+                @Html.ActionLink("Quay lại", "DanhSachTaiKhoan", "TaiKhoan", new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}

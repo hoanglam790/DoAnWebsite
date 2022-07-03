@@ -1,4 +1,17 @@
-﻿@model IEnumerable<WebsiteDuLichDiaPhuong.Models.TOURDULICH>
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteDuLichDiaPhuong.Models.TOURDULICH>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
 
 @{
     ViewBag.Title = "Danh sách tour";
@@ -8,9 +21,9 @@
 <h2 style="padding-top: 20px; margin-left: 10px">DANH SÁCH TOUR DU LỊCH</h2>
 
 <p style="margin-left: 10px">
-    @Html.ActionLink("Tạo mới", "ThemTour", "TourDuLich", new { @class = "btn btn-success"} )
+    @Html.ActionLink("Tạo mới", "ThemTour", "TourDuLich", new { @class = "btn btn-success" })
 </p>
-<table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px"">
+<table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px">
     <tr>
         <th style="text-align: center">
             Tên tour
@@ -32,29 +45,35 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td style="text-align: center">
-            @Html.DisplayFor(modelItem => item.TenTour)
-        </td>
-        <td style="text-align: center">
-            @Html.DisplayFor(modelItem => item.MieuTa)
-        </td>
-        <td style="text-align: center">
-            @Html.DisplayFor(modelItem => item.GiaTien)
-        </td>
-        <td style="text-align: center">
-            <img src="~/Images/@item.HINHANH.TenHinhAnh" width="160px" alt="HinhAnh" />
-        </td>
-        <td style="text-align: center">
-            @Html.DisplayFor(modelItem => item.DuongLink)
-        </td>
-        <td style="text-align: center">
-            @Html.ActionLink("Sửa", "SuaTour", new { id=item.MaTour }, new { @class = "btn btn-warning" })
-            @Html.ActionLink("Chi tiết", "ChiTietTour", new { id=item.MaTour }, new { @class = "btn btn-info" })
-            @Html.ActionLink("Xóa", "XoaTour", new { id=item.MaTour }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.TenTour)
+            </td>
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.MieuTa)
+            </td>
+            <td style="text-align: center">
+                @Html.DisplayFor(modelItem => item.GiaTien)
+            </td>
+            <td style="text-align: center">
+                <img src="~/Images/@item.HINHANH.TenHinhAnh" width="160px" alt="HinhAnh" />
+            </td>
+            <td style="text-align: center">
+                @Truncate(item.DuongLink, 50)
+            </td>
+            <td style="text-align: center">
+                @Html.ActionLink("Sửa", "SuaTour", new { id = item.MaTour }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Chi tiết", "ChiTietTour", new { id = item.MaTour }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Xóa", "XoaTour", new { id = item.MaTour }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="col-md-12 text-center clear-both">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachTour",
+    new { page = page }))
+</div>

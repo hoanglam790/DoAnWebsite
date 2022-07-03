@@ -152,7 +152,13 @@
                             <a class="text-dark mb-2" href="@Url.Action("TrangChu", "DuLichDiaPhuong")"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
                             <a class="text-dark mb-2" href="@Url.Action("TinTuc", "DuLichDiaPhuong")"><i class="fa fa-angle-right mr-2"></i>Tin tức</a>
                             <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Sự kiện</a>
-                            <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Dịch vụ</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle text-dark mb-2" data-toggle="dropdown"><i class="fa fa-angle-right mr-2"></i>Dịch vụ</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="@Url.Action("NhaHang", "DuLichDiaPhuong")" class="dropdown-item">Nhà hàng</a>
+                                    <a href="@Url.Action("TourDuLich", "DuLichDiaPhuong")" class="dropdown-item">Tour du lịch</a>
+                                </div>
+                            </div>
                             <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Khách sạn</a>
                             <a class="text-dark" href="@Url.Action("LienHe", "DuLichDiaPhuong")"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
                         </div>
@@ -167,7 +173,7 @@
         <div class="row border-top border-light mx-xl-5 py-4">
             <div class="col-md-6 px-xl-0">
                 <p class="mb-md-0 text-center text-md-left text-dark">
-                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Sang-Dat-Binh-Lam</a>.
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Sang-Dat-Binh-Lam</a>. Đồng sở hữu.
                 </p>
             </div>
             <div class="col-md-6 px-xl-0 text-center text-md-right">
@@ -178,7 +184,6 @@
     <!-- Footer End -->
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

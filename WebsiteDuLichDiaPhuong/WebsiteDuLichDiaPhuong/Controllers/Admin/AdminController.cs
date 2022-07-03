@@ -23,12 +23,6 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         [HttpGet]
         public ActionResult DangNhap()
         {
-            /*
-            if(Session["Taikhoanadmin"] != null)
-            {
-                return RedirectToAction("TrangChu", "Admin");
-            }
-            */
             return View();
         }
 

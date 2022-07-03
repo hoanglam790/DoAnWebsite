@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebsiteDuLichDiaPhuong.Models;
 
-namespace WebsiteDuLichDiaPhuong.Controllers
+namespace WebsiteDuLichDiaPhuong.Controllers.NguoiDung
 {
     public class GioiThieuController : Controller
     {

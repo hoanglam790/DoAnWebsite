@@ -1,10 +1,10 @@
 ﻿@model WebsiteDuLichDiaPhuong.Models.NHAHANG
 @{
-    ViewBag.Title = "SuaNhaHang";
+    ViewBag.Title = "Sửa nhà hàng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>SỬA NHÀ HÀNG</h2>
+<h2 style="padding-top: 30px; margin-left: 25px">SỬA NHÀ HÀNG</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -14,15 +14,15 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.MaNhaHang)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenNhaHang, "TÊN NHÀ HÀNG", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenNhaHang, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenNhaHang, "", new { @class = "text-danger" })
-            </div>
+    <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
+        @Html.LabelFor(model => model.TenNhaHang, "TÊN NHÀ HÀNG", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenNhaHang, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenNhaHang, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
             @Html.LabelFor(model => model.DiaChi, "ĐỊA CHỈ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
             @Html.LabelFor(model => model.SDT, "SỐ ĐIỆN THOẠI", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
@@ -38,8 +38,7 @@
             </div>
         </div>
 
-
-        <div class="form-group">
+        <div style="padding-top: 30px; margin-left: 25px" class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Lưu" class="btn btn-success" />
                 @Html.ActionLink("Quay về", "DanhSachNhaHang", "Admin", new { @class = "btn btn-primary" })
@@ -47,7 +46,3 @@
         </div>
     </div>
 }
-
-<div>
-
-</div>

@@ -7,7 +7,7 @@
 
 <h2 style="padding-top: 30px; margin-left: 25px">SỬA THÔNG TIN ĐỊA DANH</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("ThemDiaDanhMoi", "DiaDanh", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -34,9 +34,7 @@
         <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
             @Html.LabelFor(model => model.MaHinhAnh, "Hình ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" name="upload" />
-                <img src="@Url.Content("~/Images/" + Model.HINHANH.TenHinhAnh)" width="100px" alt="Alternate Text" /> Ảnh hiện tại
-                @ViewBag.ThongBao
+                @Html.DropDownList("MaHinhAnh")
             </div>
         </div>
 

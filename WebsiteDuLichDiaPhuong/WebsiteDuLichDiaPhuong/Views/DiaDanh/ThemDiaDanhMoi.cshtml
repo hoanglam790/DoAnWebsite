@@ -1,13 +1,13 @@
 ﻿@model WebsiteDuLichDiaPhuong.Models.DIADANH
 
 @{
-    ViewBag.Title = "ThemDiaDanhMoi";
+    ViewBag.Title = "Thêm địa danh mới";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <h2 style="padding-top: 30px; margin-left: 25px">THÊM ĐỊA DANH MỚI</h2>
 
-@using (Html.BeginForm("ThemDiaDanhMoi", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("ThemDiaDanhMoi", "DiaDanh", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -41,7 +41,7 @@
             @Html.LabelFor(model => model.GioiThieu, "Giới thiệu", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.GioiThieu)
-                
+
             </div>
         </div>
 
@@ -52,4 +52,9 @@
             </div>
         </div>
     </div>
+    /*
+    <script type="text/javascript">
+        alert('Thêm thành công');
+    </script>
+    */
 }

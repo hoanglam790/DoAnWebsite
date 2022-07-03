@@ -20,12 +20,14 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         //Thêm khách sạn mới
         public ActionResult ThemKhachSanMoi()
         {
+            ViewBag.MaHuyen = new SelectList(dbDuLich.HUYENs.ToList(), "MaHuyen", "TenHuyen");
             return View();
         }
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult ThemKhachSanMoi(KHACHSAN khachsan)
         {
+            ViewBag.MaHuyen = new SelectList(dbDuLich.HUYENs.ToList(), "MaHuyen", "TenHuyen");
             if (ModelState.IsValid)
             {
                 KHACHSAN ks = new KHACHSAN();
@@ -47,7 +49,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
                 Response.StatusCode = 404;
                 return null;
             }
-            ViewBag.MaHuyen = new SelectList(dbDuLich.HUYENs.ToList(), "MaHuyen", "TenHuyen", khachsan.MaHuyen);
+            ViewBag.MaHuyen = new SelectList(dbDuLich.HUYENs.ToList(), "MaHuyen", "TenHuyen");
             return View(khachsan);
         }
 

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebsiteDuLichDiaPhuong.Models;
 
-namespace WebsiteDuLichDiaPhuong.Controllers
+namespace WebsiteDuLichDiaPhuong.Controllers.NguoiDung
 {
     public class DuLichDiaPhuongController : Controller
     {
@@ -54,7 +54,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers
 
         public ActionResult GioiThieu()
         {
-            var gioiThieu = dbDuLich.TINTUCs.Where(n => n.MaTinTuc == 7);
+            var gioiThieu = dbDuLich.TINTUCs.Where(n => n.MaTinTuc == 7).ToList();
             return View(gioiThieu);
         }
 
@@ -67,7 +67,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers
 
         public ActionResult TinTuc()
         {
-            var tinTuc = dbDuLich.TINTUCs.Where(n => n.MaTheLoai == 1);
+            var tinTuc = dbDuLich.TINTUCs.Where(n => n.MaTheLoai == 1).ToList();
             return View(tinTuc);
         }
 
@@ -91,7 +91,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers
         //Sự kiện
         public ActionResult SuKien()
         {
-            var sk = dbDuLich.TINTUCs.Where(n => n.MaTheLoai == 2);
+            var sk = dbDuLich.TINTUCs.Where(n => n.MaTheLoai == 2).ToList();
             return View(sk);
         }
         public ActionResult ChiTietSuKien(int id)

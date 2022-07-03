@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WebsiteDuLichDiaPhuong.Models.TINTUC>
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteDuLichDiaPhuong.Models.TINTUC>
 
 @helper Truncate(string input, int length)
 {
@@ -70,3 +71,8 @@
         </tr>
     }
 </table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="col-md-12 text-center clear-both">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachTinTuc",
+    new { page = page }))
+</div>

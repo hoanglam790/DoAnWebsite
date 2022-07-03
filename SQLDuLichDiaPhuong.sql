@@ -1,11 +1,11 @@
 USE [master]
 GO
-/****** Object:  Database [QuangBaDL]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Database [QuangBaDL]    Script Date: 03/07/2022 10:30:52 PM ******/
 CREATE DATABASE [QuangBaDL]
 GO
 USE [QuangBaDL]
 GO
-/****** Object:  Table [dbo].[DIADANH]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[DIADANH]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -22,7 +22,7 @@ CREATE TABLE [dbo].[DIADANH](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HINHANH]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[HINHANH]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -37,7 +37,7 @@ CREATE TABLE [dbo].[HINHANH](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HUYEN]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[HUYEN]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -52,7 +52,7 @@ CREATE TABLE [dbo].[HUYEN](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[KHACHSAN]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[KHACHSAN]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -70,7 +70,7 @@ CREATE TABLE [dbo].[KHACHSAN](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NHAHANG]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[NHAHANG]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -87,7 +87,7 @@ CREATE TABLE [dbo].[NHAHANG](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TAIKHOAN]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[TAIKHOAN]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +103,7 @@ CREATE TABLE [dbo].[TAIKHOAN](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[THELOAITIN]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[THELOAITIN]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -117,7 +117,7 @@ CREATE TABLE [dbo].[THELOAITIN](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TINTUC]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[TINTUC]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -127,15 +127,15 @@ CREATE TABLE [dbo].[TINTUC](
 	[TieuDe] [nvarchar](100) NOT NULL,
 	[NoiDungTinTuc] [ntext] NOT NULL,
 	[MaTheLoai] [int] NOT NULL,
-	[MaHinhAnh] [int] NULL,
-	[NgayCapNhat] [datetime] NULL,
+	[MaHinhAnh] [int] NOT NULL,
+	[NgayCapNhat] [datetime] NOT NULL,
  CONSTRAINT [PK_TINTUC] PRIMARY KEY CLUSTERED 
 (
 	[MaTinTuc] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TOURDULICH]    Script Date: 30/06/2022 1:02:54 PM ******/
+/****** Object:  Table [dbo].[TOURDULICH]    Script Date: 03/07/2022 10:30:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,6 +178,22 @@ INSERT [dbo].[DIADANH] ([MaDiaDanh], [TenDiaDanh], [MaHuyen], [MaHinhAnh], [Gioi
 Khi du khách có dịp đến với mảnh đất này, bạn nhất định phải ghé thăm chùa Quang Minh để có thể chiêm ngưỡng toàn bộ cảnh đẹp tuyệt vời của nơi này. Để có thể đến được chùa Quang Minh, bạn sẽ có nhiều loại phương tiện để lựa chọn đó là thuê xe máy hoặc thuê taxi có sẵn tại Đà Nẵng rồi sau đó bạn có thể di chuyển đến được chùa Quang Minh. Chùa Quang Minh chắc chắn là một điểm đến tâm linh tuyệt vời dành cho du khách khi du khách có dịp ghé thăm thành phố xinh đẹp này !')
 GO
 INSERT [dbo].[DIADANH] ([MaDiaDanh], [TenDiaDanh], [MaHuyen], [MaHinhAnh], [GioiThieu]) VALUES (12, N'Di chỉ khảo cổ Chăm Phong Lệ', 3, 24, N'Chăm Phong Lệ là một địa điểm du lịch tại Quận Cẩm Lệ (Thành phố Đà Nẵng thuộc vùng Duyên Hải Nam Trung Bộ). Di tích khảo cổ Chăm Phong Lệ thuộc phường Hòa Thọ Đông, quận Cẩm Lệ, thành phố Đà Nẵng. Di tích Chăm Phong Lệ (phường Hòa Thọ Đông, quận Cẩm Lệ) được phát lộ và thực hiện khai quật khảo cổ lần đầu trên diện tích 500 m2 theo Quyết định số 1666/QĐ-BVHTTDL ngày 4-5-2012 của Bộ Văn hóa, Thể thao và Du lịch. Đây là di tích tiêu biểu trong các di tích Chăm tại Đà Nẵng có điều kiện khảo sát đầy đủ nhất, đồng thời là di tích duy nhất cho đến nay trong toàn bộ hệ thống đền tháp Chăm có điều kiện để nghiên cứu và giới thiệu về phần nền móng kiến trúc.')
+GO
+INSERT [dbo].[DIADANH] ([MaDiaDanh], [TenDiaDanh], [MaHuyen], [MaHinhAnh], [GioiThieu]) VALUES (24, N'Hồ Xanh', 5, 42, N'Hồ Xanh Đà Nẵng khiến cho những con tim trầm ổn nhất cũng phải rung rinh bởi sắc xanh của nước, của trời, bởi sắc vàng lóng lánh của những tia nắng đang nhảy nhót, bởi sắc nâu trầm của bè tre và những chiếc thuyền độc mộc. Hồ Xanh Đà Nẵng (hay hồ Bãi Bụt) nằm ở khu vực hồ Bãi Bụt, Đà Nẵng. Địa chỉ hồ Xanh Đà Nẵng ở Hoàng Sa, Thọ Quang, Sơn Trà, Đà Nẵng, gần chùa Linh Ứng. Hồ Xanh cách trung tâm thành phố Đà Nẵng khoảng 10km về hướng Đông Bắc, trên trục đường đi lên Sơn Trà.
+
+Đúng như tên gọi, điểm nhấn của hồ Xanh chính là ở làn nước xanh trong vắt. Sắc nước hòa cùng với sắc trời, tạo nên một cảnh quan vô cùng hoàn mỹ. Nhìn sâu xuống dưới đáy hồ là những rặng san hô đa sắc màu tuyệt đẹp hiện lên. Hồ Xanh cách trung tâm thành phố Đà Nẵng không xa, thế nhưng khung cảnh và không khí ở nơi đây lại hoàn toàn khác biệt. Núi non thơ mộng, sông nước hữu tình đem đến một cảm giác nhẹ nhàng, bình yên đến lạ, níu chân bạn lưu luyến mãi chẳng muốn rời đi.')
+GO
+INSERT [dbo].[DIADANH] ([MaDiaDanh], [TenDiaDanh], [MaHuyen], [MaHinhAnh], [GioiThieu]) VALUES (25, N'Nhà Vọng Cảnh', 5, 46, N'Nhà Vọng Vọng hay còn gọi là Đài Vọng Cảnh nằm ở độ cao 600 m so với mực nước biển, được xây dựng trên một mỏm đá nhô ra biển nên sở hữu tầm nhìn rất tốt, từ đây bạn có thể chiêm ngưỡng cảnh đẹp. Phía trước còn có hình ảnh khỉ đá – một trong những biểu tượng của bán đảo này. Với độ cao lý tưởng, Đài Vọng Cảnh Sơn Trà đứng sừng sững giữa bạt ngàn thiên nhiên núi rừng xanh thẳm và mây ngàn, sương mờ giăng lối vào mỗi buổi sáng làm cho du khách tưởng chừng như lạc vào thế giới thần tiên.')
+GO
+INSERT [dbo].[DIADANH] ([MaDiaDanh], [TenDiaDanh], [MaHuyen], [MaHinhAnh], [GioiThieu]) VALUES (26, N'Bãi Nam', 5, 47, N'Bãi Nam Sơn Trà Đà Nẵng là một bãi biển nằm ở phía Nam bán đảo Sơn Trà, người dân ở đây thường hay gọi là bãi Nờm hoặc bãi Nồm. Đây cũng chính là một trong những bãi biển đẹp của bán đảo Sơn Trà, nơi này có rất nhiều khu nghỉ dưỡng và rất nhiều resort. Bạn có thể nhận ra bãi tắm này khi đứng chỗ bão biển Mỹ Khê nhìn từ xa xa. Điểm đặc trưng đó chính là hệ thống sinh thái ở đây rất lớn, khu vực lặn ngắm san hô với rất nhiều cảnh đẹp.
+
+ Vì đây là bãi tắm nên việc thời gian thích hợp để đến Bãi Nam Đà Nẵng để khám phá là điều chắc chắn mà mỗi du khách có kế hoạch đến đây. Khí hậu ở Đà Nẵng có hai mùa rõ rệt đó chính là mùa mô và mùa mưa. Mùa khô ở Đà Nẵng sẽ diễn ra từ tháng 2 đến tháng 8, thời điểm này nếu bạn đi du lịch Đà Nẵng sẽ rất hợp lý.
+ Vẻ đẹp của Bãi Nam Đà Nẵng đã làm nổi bật lên nguồn ánh sáng cho ”viên ngọc quý” ngay giữa chốn thành phố nhộn nhịp. Sự hài hòa giữa cánh rừng xanh, bãi cát trắng trải dài và dòng nước biển xanh ngắt đã làm toát lên vẻ đẹp ngây ngất của Bãi Nam. Cung đường di chuyển lên đây cũng tạo nên một đường cong vô cùng độc đáo, thú vị,… Tất cả những điều đó đã vẽ nên một bức tranh thiên nhiên vô cùng hữu tình, lãng mạn đi vào lòng người.
+')
+GO
+INSERT [dbo].[DIADANH] ([MaDiaDanh], [TenDiaDanh], [MaHuyen], [MaHinhAnh], [GioiThieu]) VALUES (27, N'Đình Thạc Gián', 6, 9, N'Đình Thạc Gián là một địa điểm du lịch tại Quận Thanh Khê (Thành phố Đà Nẵng thuộc vùng Duyên Hải Nam Trung Bộ). Cách trung tâm Thành phố Đà Nẵng khoảng 2 km. Sau khi thực hiện công cuộc khai khẩn, khai canh, khai cư, lập nên địa bộ Làng Thạc Gián, khi cư dân bước đầu có cuộc sống ổn định- Các Bậc Tiền nhân làng Thạc Gián lúc ấy đã theo phong tục tập quán của người Việt: Kêu gọi cư dân xây dựng Đình Làng Miếu Vũ nhằm đưa hồn thiêng quê cũ vào vùng quê mới. Thực hiện tín ngưỡng Thờ Phụng Tổ Phụ, Tổ Mẫu, Anh hùng dân tộc, các Bậc Tiền nhân. Đình Làng Thạc Gián đã được xếp hạng Di tích quốc gia-theo QĐ số 05/2007 của Bộ Văn Hóa Thể thao và Du lịch.')
+GO
+INSERT [dbo].[DIADANH] ([MaDiaDanh], [TenDiaDanh], [MaHuyen], [MaHinhAnh], [GioiThieu]) VALUES (28, N'Di tích nhà mẹ Nhu', 6, 10, N'Di tích nhà mẹ Nhu là một địa điểm du lịch tại Quận Thanh Khê (Thành phố Đà Nẵng thuộc vùng Duyên Hải Nam Trung Bộ). Cách trung tâm Thành phố Đà Nẵng khoảng 4 km. Căn nhà của mẹ Nhu là cơ sở quan trọng trong khu tam giác chiến lược trọng điểm An Khê-Phú Lộc-Thanh Khê trong phong trào cách mạng quận Nhì (Đà Nẵng). Ngày 26-12-1968, để che giấu cho các dũng sĩ Thanh Khê đang ẩn náu trong hầm bí mật tại nhà mình, mẹ Nhu đã mưu trí chiến đấu và anh dũng hy sinh. Từ đây, bảy dũng sĩ Thanh Khê đã chiến đấu ngoan cường, đánh bại âm mưu tiêu diệt lực lượng cách mạng của kẻ địch.')
 GO
 SET IDENTITY_INSERT [dbo].[DIADANH] OFF
 GO
@@ -264,6 +280,16 @@ GO
 INSERT [dbo].[HINHANH] ([MaHinhAnh], [TenHinhAnh], [MoTaHinhAnh]) VALUES (40, N'khach-san-brown-bean.jpeg', N'Khách sạn Brown Bean')
 GO
 INSERT [dbo].[HINHANH] ([MaHinhAnh], [TenHinhAnh], [MoTaHinhAnh]) VALUES (41, N'da-nang-centre-hotel.jpg', N'Khách sạn trung tâm')
+GO
+INSERT [dbo].[HINHANH] ([MaHinhAnh], [TenHinhAnh], [MoTaHinhAnh]) VALUES (42, N'ho-xanh.png', N'Hồ Xanh')
+GO
+INSERT [dbo].[HINHANH] ([MaHinhAnh], [TenHinhAnh], [MoTaHinhAnh]) VALUES (46, N'nha-vong-canh.png', N'Nhà Vọng Cảnh')
+GO
+INSERT [dbo].[HINHANH] ([MaHinhAnh], [TenHinhAnh], [MoTaHinhAnh]) VALUES (47, N'bai-nam.png', N'Bãi Nam')
+GO
+INSERT [dbo].[HINHANH] ([MaHinhAnh], [TenHinhAnh], [MoTaHinhAnh]) VALUES (48, N'bai-bien-pham-van-dong.png', N'Bãi biển Phạm Văn Đồng')
+GO
+INSERT [dbo].[HINHANH] ([MaHinhAnh], [TenHinhAnh], [MoTaHinhAnh]) VALUES (49, N'bai-bien-du-lich-da-nang.jpg', N'Bãi biển du lịch Đà Nẵng')
 GO
 SET IDENTITY_INSERT [dbo].[HINHANH] OFF
 GO
@@ -390,6 +416,18 @@ INSERT [dbo].[TINTUC] ([MaTinTuc], [TieuDe], [NoiDungTinTuc], [MaTheLoai], [MaHi
 Khi du khách có dịp đến với mảnh đất này, bạn nhất định phải ghé thăm chùa Quang Minh để có thể chiêm ngưỡng toàn bộ cảnh đẹp tuyệt vời của nơi này. Để có thể đến được chùa Quang Minh, bạn sẽ có nhiều loại phương tiện để lựa chọn đó là thuê xe máy hoặc thuê taxi có sẵn tại Đà Nẵng rồi sau đó bạn có thể di chuyển đến được chùa Quang Minh. Chùa Quang Minh chắc chắn là một điểm đến tâm linh tuyệt vời dành cho du khách khi du khách có dịp ghé thăm thành phố xinh đẹp này !', 1, 7, CAST(N'2022-06-25T00:00:00.000' AS DateTime))
 GO
 INSERT [dbo].[TINTUC] ([MaTinTuc], [TieuDe], [NoiDungTinTuc], [MaTheLoai], [MaHinhAnh], [NgayCapNhat]) VALUES (14, N'Di chỉ khảo cổ Chăm Phong Lệ', N'Chăm Phong Lệ là một địa điểm du lịch tại Quận Cẩm Lệ (Thành phố Đà Nẵng thuộc vùng Duyên Hải Nam Trung Bộ). Di tích khảo cổ Chăm Phong Lệ thuộc phường Hòa Thọ Đông, quận Cẩm Lệ, thành phố Đà Nẵng. Di tích Chăm Phong Lệ (phường Hòa Thọ Đông, quận Cẩm Lệ) được phát lộ và thực hiện khai quật khảo cổ lần đầu trên diện tích 500 m2 theo Quyết định số 1666/QĐ-BVHTTDL ngày 4-5-2012 của Bộ Văn hóa, Thể thao và Du lịch. Đây là di tích tiêu biểu trong các di tích Chăm tại Đà Nẵng có điều kiện khảo sát đầy đủ nhất, đồng thời là di tích duy nhất cho đến nay trong toàn bộ hệ thống đền tháp Chăm có điều kiện để nghiên cứu và giới thiệu về phần nền móng kiến trúc.', 1, 24, CAST(N'2022-06-27T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[TINTUC] ([MaTinTuc], [TieuDe], [NoiDungTinTuc], [MaTheLoai], [MaHinhAnh], [NgayCapNhat]) VALUES (18, N'Bãi Biển Phạm Văn Đồng Đà Nẵng', N'Bãi biển Phạm Văn Đồng Đà Nẵng góp mặt ở vị trí thứ 5 BXH các bãi biển đẹp nhất thế giới. Để chuyến đi khám phá Đà Thành của bạn trở nên trọn vẹn hơn, đừng quên ghé thăm biển đảo này nhé! Tin rằng, những trải nghiệm ở đây sẽ không làm bạn phải thất vọng.
+
+ Địa chỉ của bãi biển Đà Nẵng này nằm ngay trong tên gọi của nó. Theo đó, biển nằm trên đường Phạm Văn Đồng, trực thuộc quận Sơn Trà. Nơi đây bao hàm rất nhiều bãi tắm tuyệt đẹp khác. Bờ biển của chúng trải dài lên đến 60km, kéo từ đèo Hải Vân đến vùng Non Nước.
+
+ Nước biển nơi đây xanh ngắt như bầu trời ngày nắng vậy. Bao quanh chúng là một bờ cát trắng mịn. Tất cả hòa quyện cùng nhau tạo nên một khung cảnh làm đắm say lòng người. Bên cạnh đó, bãi biển Phạm Văn Đồng còn nằm ngay cạnh biển Mỹ Khê. Vì thế, bạn có thể di chuyển đến đây để check in và trải nghiệm nhiều trò chơi lý thú khác.
+', 1, 46, CAST(N'2022-07-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[TINTUC] ([MaTinTuc], [TieuDe], [NoiDungTinTuc], [MaTheLoai], [MaHinhAnh], [NgayCapNhat]) VALUES (19, N'Kinh nghiệm du lịch Đà Nẵng theo mùa khô', N'Đà Nẵng – “thành phố đáng sống” nằm lặng yên bên bờ sóng biển luôn biết cách thu hút những tâm hồn mê du lịch, khám phá. Cùng với các điểm đến khác của miền Trung, du lịch Đà Nẵng đã và đang là điểm đến hàng đầu được du khách thường xuyên chọn để thư giãn, giải trí và nghỉ dưỡng. Đà Nẵng chịu ảnh hưởng của kiểu khí hậu nhiệt đới gió mùa. Nhưng lại không phân thành 4 mùa rõ rệt, các mùa đều có sự giao thoa, không dễ nhận biết là mùa nào. Nhìn chung, Đà Nẵng chia làm 2 kiểu thời tiết, là mùa mưa và mùa khô với những đặc tính riêng.
+
++ Du lịch Đà Nẵng mùa khô
+Mùa khô ở Đà Nẵng kéo dài từ tháng 2 cho đến tháng 8. Đa phần những ngày này đều nắng ráo, nền nhiệt độ từ 28-35 độ C. Rất thích hợp cho các hoạt động vui chơi, tắm biển. Một số ngày đỉnh điểm nhiệt độ có thể tăng lên 36-37 độ C, nắng gắt. Nhưng Đà Nẵng dễ chịu hơn so với các tỉnh phía Nam như Ninh Thuận, Phú Yên… Theo kinh nghiệm du lịch Đà Nẵng thì đây là thời điểm lý tưởng để đi du lịch. Lúc này trời khô ráo, trong xanh, nắng vàng, vừa thuận tiện trong di chuyển vừa có thể tận hưởng những bãi tắm đẹp và chinh phục những cung đường ấn tượng như đèo Hải Vân, đường kên bán đảo Sơn Trà và thâm gia vào nhiều hoạt động du lịch biển như: lặn san hô, lượn dù, lướt cano, vv… ', 1, 49, CAST(N'2022-07-03T00:00:00.000' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[TINTUC] OFF
 GO

@@ -41,10 +41,8 @@
 
         <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
             @Html.LabelFor(model => model.MaHinhAnh, "Hình ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10"> Chọn ảnh mới
-                <input type="file" name="upload" />
-                <img src="@Url.Content("~/Images/" + Model.HINHANH.TenHinhAnh)" width="100px" alt="Alternate Text" /> Ảnh hiện tại
-                @ViewBag.ThongBao
+            <div class="col-md-10">
+                @Html.DropDownList("MaHinhAnh")
             </div>
         </div>
 

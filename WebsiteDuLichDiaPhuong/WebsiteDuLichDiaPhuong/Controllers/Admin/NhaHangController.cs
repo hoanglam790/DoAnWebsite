@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebsiteDuLichDiaPhuong.Models;
+using PagedList;
 
 namespace WebsiteDuLichDiaPhuong.Controllers.Admin
 {
@@ -11,10 +12,13 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
     {
         DuLichDiaPhuongModel dbDuLich = new DuLichDiaPhuongModel();
         // GET: NhaHang
-        public ActionResult DanhSachNhaHang()
+        public ActionResult DanhSachNhaHang(int? page)
         {
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+
             var danhSach = dbDuLich.NHAHANGs.ToList();
-            return View(danhSach);
+            return View(danhSach.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult ThemNhaHangMoi()
         {

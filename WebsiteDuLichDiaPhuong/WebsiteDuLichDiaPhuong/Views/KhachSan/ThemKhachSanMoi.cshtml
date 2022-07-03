@@ -1,7 +1,7 @@
 ﻿@model WebsiteDuLichDiaPhuong.Models.KHACHSAN
 
 @{
-    ViewBag.Title = "ThemKhachSanMoi";
+    ViewBag.Title = "Thêm khách sạn";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -39,10 +39,9 @@
         </div>
 
         <div style="padding-top: 30px; margin-left: 25px; font-weight: bold" class="form-group">
-            @Html.LabelFor(model => model.MaHuyen, "MÃ HUYỆN", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MaHuyen, "TÊN HUYỆN", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaHuyen, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaHuyen, "", new { @class = "text-danger" })
+                @Html.DropDownList("MaHuyen")
             </div>
         </div>
 

@@ -1,7 +1,7 @@
 ﻿@model WebsiteDuLichDiaPhuong.Models.NHAHANG
 
 @{
-    ViewBag.Title = "ChiTietNhaHang";
+    ViewBag.Title = "Chi tiết nhà hàng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -10,33 +10,33 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
             TÊN NHÀ HÀNG:
         </dt>
 
-        <dd>
+        <dd style="padding-top: 30px; margin-left: 25px">
             @Html.DisplayFor(model => model.TenNhaHang)
         </dd>
 
-        <dt>
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
             ĐỊA CHỈ:
         </dt>
 
-        <dd>
+        <dd style="padding-top: 30px; margin-left: 25px">
             @Html.DisplayFor(model => model.DiaChi)
         </dd>
 
-        <dt>
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
             SỐ ĐIỆN THOẠI:
         </dt>
 
-        <dd>
+        <dd style="padding-top: 30px; margin-left: 25px">
             @Html.DisplayFor(model => model.SDT)
         </dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Chỉnh sửa", "SuaNhaHang", new { id = Model.MaNhaHang }) |
-    @Html.ActionLink("Quay về", "DanhSachNhaHang")
+<p style="padding-top: 30px; margin-left: 25px">
+    @Html.ActionLink("Chỉnh sửa", "SuaNhaHang", new { id = Model.MaNhaHang }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Quay về", "DanhSachNhaHang", "NhaHang", new { @class = "btn btn-danger" })
 </p>

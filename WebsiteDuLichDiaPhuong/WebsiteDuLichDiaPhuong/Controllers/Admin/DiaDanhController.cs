@@ -72,6 +72,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         public ActionResult SuaDiaDanh(int id)
         {
             ViewBag.MaHuyen = new SelectList(dbDuLich.HUYENs.ToList(), "MaHuyen", "TenHuyen");
+            ViewBag.MaHinhAnh = new SelectList(dbDuLich.HINHANHs.ToList(), "MaHinhAnh", "TenHinhAnh");
             DIADANH diaDanh = dbDuLich.DIADANHs.SingleOrDefault(n => n.MaDiaDanh == id);
             if (diaDanh == null)
             {
@@ -86,38 +87,19 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         public ActionResult SuaDiaDanh(DIADANH diaDanh, HttpPostedFileBase upload)
         {
             ViewBag.MaHuyen = new SelectList(dbDuLich.HUYENs.ToList(), "MaHuyen", "TenHuyen");
-            if (upload == null)
+            ViewBag.MaHinhAnh = new SelectList(dbDuLich.HINHANHs.ToList(), "MaHinhAnh", "TenHinhAnh");
+            if (ModelState.IsValid)
             {
-                ViewBag.Thongbao = "Vui lòng chọn hình ảnh";
-                return View();
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    var fileName = Path.GetFileName(upload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                    }
-                    else
-                    {
-                        upload.SaveAs(path);
-                    }
-                    DIADANH dd = new DIADANH();
-                    HINHANH hinh = new HINHANH();
-                    dd.TenDiaDanh = diaDanh.TenDiaDanh;
-                    dd.MaHuyen = diaDanh.MaHuyen;
-                    hinh.TenHinhAnh = fileName;
-                    dd.MaHinhAnh = diaDanh.MaHinhAnh;
-                    dd.GioiThieu = diaDanh.GioiThieu;
-                    dbDuLich.HINHANHs.Add(hinh);
-                    UpdateModel(dd);
-                    dbDuLich.SaveChanges();
-                }
+                var suaDiaDanh = dbDuLich.DIADANHs.SingleOrDefault(n => n.MaDiaDanh == diaDanh.MaDiaDanh);
+                suaDiaDanh.TenDiaDanh = diaDanh.TenDiaDanh;
+                suaDiaDanh.MaHuyen = diaDanh.MaHuyen;
+                suaDiaDanh.MaHinhAnh = diaDanh.MaHinhAnh;
+                suaDiaDanh.GioiThieu = diaDanh.GioiThieu;
+                UpdateModel(suaDiaDanh);
+                dbDuLich.SaveChanges();
                 return RedirectToAction("DanhSachDiaDanh");
             }
+            return View(diaDanh);
         }
 
         public ActionResult ChiTietDiaDanh(int id)

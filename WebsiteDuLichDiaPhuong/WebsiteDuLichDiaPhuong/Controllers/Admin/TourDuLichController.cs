@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebsiteDuLichDiaPhuong.Models;
 using System.IO;
+using PagedList;
 
 namespace WebsiteDuLichDiaPhuong.Controllers.Admin
 {
@@ -12,10 +13,13 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
     {
         DuLichDiaPhuongModel dbDuLich = new DuLichDiaPhuongModel();
         // GET: TourDuLich
-        public ActionResult DanhSachTour()
+        public ActionResult DanhSachTour(int? page)
         {
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+
             var ds = dbDuLich.TOURDULICHes.ToList();
-            return View(ds);
+            return View(ds.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult ThemTour()
@@ -65,6 +69,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         public ActionResult SuaTour(int id)
         {
             TOURDULICH t = dbDuLich.TOURDULICHes.SingleOrDefault(n => n.MaTour == id);
+            ViewBag.MaHinhAnh = new SelectList(dbDuLich.HINHANHs.ToList(), "MaHinhAnh", "TenHinhAnh");
             if (t == null)
             {
                 Response.StatusCode = 404;
@@ -75,42 +80,24 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult SuaTour(TOURDULICH t, HttpPostedFileBase upload)
+        public ActionResult SuaTour(TOURDULICH t)
         {
-            if (upload == null)
+            ViewBag.MaHinhAnh = new SelectList(dbDuLich.HINHANHs.ToList(), "MaHinhAnh", "TenHinhAnh");
+            if (ModelState.IsValid)
             {
-                ViewBag.ThongBao = "Vui lòng chọn ảnh";
-                return View();
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    var fileName = Path.GetFileName(upload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                    }
-                    else
-                    {
-                        upload.SaveAs(path);
-                    }
-                    TOURDULICH tdl = new TOURDULICH();
-                    HINHANH h = new HINHANH();
-                    tdl.TenTour = t.TenTour;
-                    tdl.MieuTa = t.MieuTa;
-                    tdl.GiaTien = t.GiaTien;
-                    h.TenHinhAnh = fileName;
-                    t.MaHinhAnh = tdl.MaHinhAnh;
-                    tdl.DuongLink = t.DuongLink;
-                    dbDuLich.HINHANHs.Add(h);
-                    UpdateModel(tdl);
-                    dbDuLich.SaveChanges();
-                }
+                var suaTour = dbDuLich.TOURDULICHes.SingleOrDefault(n => n.MaTour == t.MaTour);
+                suaTour.TenTour = t.TenTour;
+                suaTour.MieuTa = t.MieuTa;
+                suaTour.GiaTien = t.GiaTien;
+                suaTour.MaHinhAnh = t.MaHinhAnh;
+                suaTour.DuongLink = t.DuongLink;
+                UpdateModel(suaTour);
+                dbDuLich.SaveChanges();
                 return RedirectToAction("DanhSachTour");
             }
+            return View(t);
         }
+
 
         public ActionResult ChiTietTour(int id)
         {

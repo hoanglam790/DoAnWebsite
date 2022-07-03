@@ -22,6 +22,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         }
 
         //Thêm mới hình ảnh
+        [HttpGet]
         public ActionResult ThemAnhMoi()
         {
             return View();
@@ -33,29 +34,26 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         {
             if (upload == null)
             {
-                ViewBag.ThongBao = "Vui lòng chọn ảnh";
+                ViewBag.Thongbao = "Vui lòng chọn hình ảnh";
                 return View();
             }
             else
             {
-                if (ModelState.IsValid)
+                var fileName = Path.GetFileName(upload.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                if (System.IO.File.Exists(path))
                 {
-                    var fileName = Path.GetFileName(upload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                    }
-                    else
-                    {
-                        upload.SaveAs(path);
-                    }
-                    HINHANH h = new HINHANH();
-                    h.TenHinhAnh = fileName;
-                    h.MoTaHinhAnh = ha.MoTaHinhAnh;
-                    dbDuLich.HINHANHs.Add(h);
-                    dbDuLich.SaveChanges();
+                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
                 }
+                else
+                {
+                    upload.SaveAs(path);
+                }
+                HINHANH hinh = new HINHANH();
+                hinh.TenHinhAnh = fileName;
+                hinh.MoTaHinhAnh = ha.MoTaHinhAnh;
+                dbDuLich.HINHANHs.Add(hinh);
+                dbDuLich.SaveChanges();
                 return RedirectToAction("DanhSachHinhAnh");
             }
         }
@@ -63,6 +61,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
         //Sửa hình ảnh
         public ActionResult SuaAnh(int id)
         {
+            ViewBag.MaHinhAnh = new SelectList(dbDuLich.HINHANHs.ToList(), "MaHinhAnh", "TenHinhAnh");
             HINHANH hinhAnh = dbDuLich.HINHANHs.SingleOrDefault(n => n.MaHinhAnh == id);
             if (hinhAnh == null)
             {
@@ -74,35 +73,19 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult SuaAnh(HINHANH ha, HttpPostedFileBase upload)
+        public ActionResult SuaAnh(HINHANH ha)
         {
-            if (upload == null)
+            ViewBag.MaHinhAnh = new SelectList(dbDuLich.HINHANHs.ToList(), "MaHinhAnh", "TenHinhAnh");
+            if(ModelState.IsValid)
             {
-                ViewBag.ThongBao = "Vui lòng chọn ảnh";
-                return View();
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    var fileName = Path.GetFileName(upload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                    }
-                    else
-                    {
-                        upload.SaveAs(path);
-                    }
-                    HINHANH h = new HINHANH();
-                    h.TenHinhAnh = fileName;
-                    h.MoTaHinhAnh = ha.MoTaHinhAnh;
-                    UpdateModel(h);
-                    dbDuLich.SaveChanges();
-                }
+                var suaAnh = dbDuLich.HINHANHs.SingleOrDefault(n => n.MaHinhAnh == ha.MaHinhAnh);
+                suaAnh.TenHinhAnh = ha.TenHinhAnh;
+                suaAnh.MoTaHinhAnh = ha.MoTaHinhAnh;
+                UpdateModel(suaAnh);
+                dbDuLich.SaveChanges();
                 return RedirectToAction("DanhSachHinhAnh");
             }
+            return View(ha);
         }
 
         //Chi tiết hình ảnh

@@ -1,0 +1,42 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.TAIKHOAN
+
+@{
+    ViewBag.Title = "Chi tiết tài khoản";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 30px; margin-left: 25px">CHI TIẾT TÀI KHOẢN</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Tên tài khoản:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.DisplayFor(model => model.TenTaiKhoan)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Mật khẩu:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Tên hiển thị:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.DisplayFor(model => model.TenHienThi)
+        </dd>
+
+    </dl>
+</div>
+<p style="padding-top: 30px; margin-left: 25px">
+    @Html.ActionLink("Chỉnh sửa", "SuaTaiKhoan", new { id = Model.MaTaiKhoan }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Quay lại", "DanhSachTaiKhoan", "TaiKhoan", new { @class = "btn btn-primary" })
+</p>

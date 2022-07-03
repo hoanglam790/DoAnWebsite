@@ -1,7 +1,8 @@
-﻿@model IEnumerable<WebsiteDuLichDiaPhuong.Models.NHAHANG>
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteDuLichDiaPhuong.Models.NHAHANG>
 
 @{
-    ViewBag.Title = "DanhSachNhaHang";
+    ViewBag.Title = "Danh sách nhà hàng";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -11,10 +12,10 @@
 </p>
 <table class="table table-bordered table-hover" border="2px" style=" padding-top: 30px; margin-left: 10px; margin-right: 20px">
     <tr>
-        <th style="text-align: center; margin-left: 10px">
+        <th style="text-align: center">
             Tên nhà hàng
         </th>
-        <th style="text-align: center; margin-left: 10px">
+        <th style="text-align: center">
             Địa chỉ
         </th>
         <th style="text-align: center">
@@ -45,3 +46,9 @@
         </tr>
     }
 </table>
+<!--Tạo liên kết các trang-->
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="col-md-12 text-center clear-both">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachNhaHang",
+    new { page = page }))
+</div>

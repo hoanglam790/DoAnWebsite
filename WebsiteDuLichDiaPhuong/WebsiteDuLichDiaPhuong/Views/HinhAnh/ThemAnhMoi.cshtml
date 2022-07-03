@@ -7,7 +7,7 @@
 
 <h2 style="padding-top: 30px; margin-left: 25px">THÊM ẢNH MỚI</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("ThemAnhMoi", "HinhAnh", FormMethod.Post, new { @enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     

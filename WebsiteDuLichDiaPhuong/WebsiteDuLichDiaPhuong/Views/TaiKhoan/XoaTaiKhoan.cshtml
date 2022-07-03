@@ -1,0 +1,49 @@
+﻿@model WebsiteDuLichDiaPhuong.Models.TAIKHOAN
+
+@{
+    ViewBag.Title = "Xóa tài khoản";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 30px; margin-left: 25px">XÓA THÔNG TIN TÀI KHOẢN</h2>
+
+<h3 style="padding-top: 30px; margin-left: 25px">Bạn có chắc chắn xóa tài khoản này không ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Tên tài khoản:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.DisplayFor(model => model.TenTaiKhoan)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Mật khẩu:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt style="padding-top: 30px; margin-left: 25px; font-weight: bold">
+            Tên hiển thị:
+        </dt>
+
+        <dd style="padding-top: 30px; margin-left: 25px">
+            @Html.DisplayFor(model => model.TenHienThi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div style="padding-top: 30px; margin-left: 25px" class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+            @Html.ActionLink("Quay lại", "DanhSachTaiKhoan", "TaiKhoan", new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>
