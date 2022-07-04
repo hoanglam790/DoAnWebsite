@@ -54,16 +54,16 @@
             <td>
                 @Truncate(item.NoiDungTinTuc, 80)
             </td>
-            <td>
+            <td style="text-align: center">
                 @Html.DisplayFor(modelItem => item.THELOAITIN.TenTheLoai)
             </td>
-            <td>
+            <td style="text-align: center">
                 <img src="~/Images/@item.HINHANH.TenHinhAnh" width="160px" alt="HinhAnh" />
             </td>
-            <td>
+            <td style="text-align: center">
                 @Html.DisplayFor(modelItem => item.NgayCapNhat)
             </td>
-            <td>
+            <td style="text-align: center">
                 @Html.ActionLink("Sửa", "SuaTinTuc", new { id = item.MaTinTuc }, new { @class = "btn btn-warning" })
                 @Html.ActionLink("Chi tiết", "ChiTietTinTuc", new { id = item.MaTinTuc }, new { @class = "btn btn-info" })
                 @Html.ActionLink("Xóa", "XoaTinTuc", new { id = item.MaTinTuc }, new { @class = "btn btn-danger" })

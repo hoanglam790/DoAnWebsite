@@ -31,6 +31,11 @@ namespace WebsiteDuLichDiaPhuong.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HINHANH>()
+                .HasMany(e => e.TINTUCs)
+                .WithRequired(e => e.HINHANH)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<HINHANH>()
                 .HasMany(e => e.TOURDULICHes)
                 .WithRequired(e => e.HINHANH)
                 .WillCascadeOnDelete(false);

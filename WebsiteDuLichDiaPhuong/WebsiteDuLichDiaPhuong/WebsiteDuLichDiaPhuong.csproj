@@ -237,6 +237,7 @@
     <Content Include="Images\bai-bien-nam-o.png" />
     <Content Include="Images\bai-bien-xuan-thieu.png" />
     <Content Include="Images\bai-nam.png" />
+    <Content Include="Images\banh-xeo-da-nang.jpg" />
     <Content Include="Images\bao-tang-dieu-khac-cham-pa.png" />
     <Content Include="Images\bg-1.jpg" />
     <Content Include="Images\cau-quay-song-han.png" />
@@ -266,6 +267,7 @@
     <Content Include="Images\lang-chieu-cam-ne.png" />
     <Content Include="Images\lang-da-my-nghe-non-nuoc.png" />
     <Content Include="Images\lang-nghe-nuoc-mam-nam-o.png" />
+    <Content Include="Images\le-hoi-carnival.jpg" />
     <Content Include="Images\le-hoi-dua-thuyen.png" />
     <Content Include="Images\le-hoi-muc-dong.png" />
     <Content Include="Images\logo-team-dut.png" />
@@ -279,9 +281,12 @@
     <Content Include="Images\nha-vong-canh.png" />
     <Content Include="Images\suoi-luong.png" />
     <Content Include="Images\thanh-pho-da-nang.jpg" />
+    <Content Include="Images\tour-ba-na-1-ngay.png" />
     <Content Include="Images\tour-da-nang-3-ngay-2-dem.jpg" />
+    <Content Include="Images\tour-da-nang-5-ngay-4-dem.jpg" />
     <Content Include="Images\tour-ngu-hanh-son-hoi-an-1-ngay-4.jpg" />
     <Content Include="Images\tour-nui-than-tai-1-ngay-gia-re-6.jpg" />
+    <Content Include="Images\tour-nui-than-tai.png" />
     <Content Include="Images\tp-da-nang.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

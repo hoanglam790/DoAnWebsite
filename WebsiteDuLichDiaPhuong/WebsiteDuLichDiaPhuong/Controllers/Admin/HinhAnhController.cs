@@ -83,7 +83,7 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
                 suaAnh.MoTaHinhAnh = ha.MoTaHinhAnh;
                 UpdateModel(suaAnh);
                 dbDuLich.SaveChanges();
-                return RedirectToAction("DanhSachHinhAnh");
+                return RedirectToAction("DanhSachHinhAnh", ha);
             }
             return View(ha);
         }

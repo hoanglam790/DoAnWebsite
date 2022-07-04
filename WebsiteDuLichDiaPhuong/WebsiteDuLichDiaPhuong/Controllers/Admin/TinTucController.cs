@@ -40,27 +40,30 @@ namespace WebsiteDuLichDiaPhuong.Controllers.Admin
             }
             else
             {
-                var fileName = Path.GetFileName(upload.FileName);
-                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                if (System.IO.File.Exists(path))
+                if (ModelState.IsValid)
                 {
-                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                    var fileName = Path.GetFileName(upload.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                    }
+                    else
+                    {
+                        upload.SaveAs(path);
+                    }
+                    TINTUC t = new TINTUC();
+                    HINHANH h = new HINHANH();
+                    t.TieuDe = tintuc.TieuDe;
+                    t.NoiDungTinTuc = tintuc.NoiDungTinTuc;
+                    t.MaTheLoai = tintuc.MaTheLoai;
+                    h.TenHinhAnh = fileName;
+                    tintuc.MaHinhAnh = t.MaHinhAnh;
+                    t.NgayCapNhat = tintuc.NgayCapNhat;           
+                    dbDuLich.TINTUCs.Add(t);
+                    dbDuLich.HINHANHs.Add(h);
+                    dbDuLich.SaveChanges();                   
                 }
-                else
-                {
-                    upload.SaveAs(path);
-                }
-                TINTUC t = new TINTUC();
-                HINHANH h = new HINHANH();
-                t.TieuDe = tintuc.TieuDe;
-                t.NoiDungTinTuc = tintuc.NoiDungTinTuc;
-                t.MaTheLoai = tintuc.MaTheLoai;
-                h.TenHinhAnh = fileName;
-                t.MaHinhAnh = tintuc.MaHinhAnh;
-                t.NgayCapNhat = tintuc.NgayCapNhat;
-                dbDuLich.TINTUCs.Add(t);
-                dbDuLich.HINHANHs.Add(h);
-                dbDuLich.SaveChanges();
                 return RedirectToAction("DanhSachTinTuc");
             }
         }

@@ -22,9 +22,9 @@ namespace WebsiteDuLichDiaPhuong.Models
 
         public int MaTheLoai { get; set; }
 
-        public int? MaHinhAnh { get; set; }
+        public int MaHinhAnh { get; set; }
 
-        public DateTime? NgayCapNhat { get; set; }
+        public DateTime NgayCapNhat { get; set; }
 
         public virtual HINHANH HINHANH { get; set; }
 
